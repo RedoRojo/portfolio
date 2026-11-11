@@ -70,7 +70,7 @@ git push -u origin main
 ### B. Deploy on Vercel
 1. Go to [vercel.com](https://vercel.com) and log in with GitHub.
 2. Click **Add New &rarr; Project**.
-3. Import your `portanti` repository.
+3. Import your `portfolio` repository.
 4. Expand the **Environment Variables** section and add the following keys:
    - `DATABASE_URL`: Add your PostgreSQL connection string.
    - `ADMIN_PASSWORD`: Add your admin passcode (e.g. `admin`).

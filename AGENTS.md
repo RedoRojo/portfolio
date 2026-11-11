@@ -1,4 +1,4 @@
-# Agent Guide — brutalist-stack / portanti
+# Agent Guide — portfolio (RedoPortfolio)
 
 ## Quick start
 ```bash

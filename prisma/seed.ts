@@ -115,14 +115,14 @@ Un ecosistema modular de utilidades web enfocadas en productividad, integradas e
       status: "COMPLETED",
     },
     {
-      title: "Brutalist Stack — Bilingual Portfolio & Minimalist CMS",
-      titleEs: "Brutalist Stack — Portafolio Bilingüe y CMS Minimalista",
-      slug: "brutalist-stack-portfolio",
+      title: "Developer Portfolio & Minimalist CMS",
+      titleEs: "Portafolio de Desarrollador y CMS Minimalista",
+      slug: "developer-portfolio-cms",
       description:
         "High-contrast brutalist developer portfolio and technical blog built with Next.js 16 App Router, PostgreSQL, Prisma ORM, and a live split-screen Markdown admin panel.",
       descriptionEs:
         "Portafolio de desarrollador y blog técnico con estética brutalista de alto contraste, construido con Next.js 16 App Router, PostgreSQL, Prisma ORM y panel de administración con vista previa en vivo.",
-      content: `# Brutalist Stack — Bilingual Portfolio & Minimalist CMS
+      content: `# Developer Portfolio & Minimalist CMS
 
 The source code powering this personal website, engineering portfolio, and technical blog.
 
@@ -132,7 +132,7 @@ The source code powering this personal website, engineering portfolio, and techn
 - **PostgreSQL & Prisma ORM**: Relational persistence for bilingual projects and devlogs.
 - **Split-Screen Admin Editor**: Real-time Markdown preview and instant publishing workflow.
 `,
-      contentEs: `# Brutalist Stack — Portafolio Bilingüe y CMS Minimalista
+      contentEs: `# Portafolio de Desarrollador y CMS Minimalista
 
 El código fuente que impulsa este sitio web personal, portafolio de ingeniería y blog técnico.
 
@@ -143,8 +143,8 @@ El código fuente que impulsa este sitio web personal, portafolio de ingeniería
 - **Editor Admin a Pantalla Dividida**: Vista previa en vivo de Markdown y publicación instantánea.
 `,
       techStack: "Next.js 16, TypeScript, PostgreSQL, Prisma ORM, Tailwind CSS",
-      repoUrl: "https://github.com/RedoRojo/brutalist-stack",
-      liveUrl: "https://brutalist-stack.vercel.app",
+      repoUrl: "https://github.com/RedoRojo/portfolio",
+      liveUrl: "https://redoportfolio.vercel.app",
       featured: false,
       status: "COMPLETED",
     },

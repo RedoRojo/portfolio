@@ -38,8 +38,8 @@ The site is built with **Next.js 16**, **Prisma ORM**, and **PostgreSQL**, style
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/RedoRojo/brutalist-stack.git
-cd brutalist-stack
+git clone https://github.com/RedoRojo/portfolio.git
+cd portfolio
 ```
 
 ### 2. Install Dependencies
