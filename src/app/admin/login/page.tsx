@@ -31,9 +31,12 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="max-w-md mx-auto my-12 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-8 space-y-6 shadow-sm">
+    <div className="max-w-md mx-auto my-12 bg-[var(--bg-card)] border border-[var(--border-control)] rounded-[2px] p-8 space-y-6">
       <div className="space-y-2 border-b border-[var(--border-subtle)] pb-4">
-        <h1 className="text-xl font-sans font-bold tracking-tight text-[var(--text-primary)]">
+        <span className="font-serif italic text-sm text-[var(--accent)] block">
+          Administration
+        </span>
+        <h1 className="text-2xl font-serif font-normal tracking-tight text-[var(--text-primary)]">
           Access Restricted
         </h1>
         <p className="text-xs font-mono text-[var(--text-secondary)]">
@@ -41,11 +44,11 @@ export default function LoginPage() {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4 font-mono">
+      <form onSubmit={handleSubmit} className="space-y-4 font-serif">
         <div className="space-y-2">
           <label
             htmlFor="pass"
-            className="text-xs font-bold uppercase tracking-wider block text-[var(--text-secondary)]"
+            className="text-sm font-medium block text-[var(--text-primary)]"
           >
             Password
           </label>
@@ -61,7 +64,7 @@ export default function LoginPage() {
             required
             aria-invalid={error ? "true" : undefined}
             aria-describedby={error ? "login-error" : undefined}
-            className="w-full px-3 py-2 border border-[var(--border-subtle)] bg-[var(--bg-secondary)] rounded-lg focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:border-[var(--accent)] text-sm text-[var(--text-primary)]"
+            className="w-full px-3 py-2.5 border border-[var(--border-control)] bg-[var(--bg-secondary)] rounded-[2px] focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:border-[var(--accent)] text-sm font-mono text-[var(--text-primary)]"
           />
         </div>
 
@@ -70,7 +73,7 @@ export default function LoginPage() {
             id="login-error"
             role="alert"
             aria-live="polite"
-            className="border border-[var(--accent-border)] bg-[var(--accent-subtle)] rounded-lg p-3 text-xs text-[var(--accent)] font-mono"
+            className="border border-[var(--accent-border)] bg-[var(--accent-subtle)] rounded-[2px] p-3 text-xs text-[var(--accent)] font-mono"
           >
             {error}
           </div>
@@ -79,7 +82,7 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full btn-primary px-4 py-2.5 font-bold text-sm tracking-wide uppercase disabled:opacity-50"
+          className="w-full btn-primary px-4 py-2.5 text-sm disabled:opacity-50"
         >
           {loading ? "Signing in…" : "Sign In"}
         </button>

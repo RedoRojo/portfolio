@@ -2,10 +2,7 @@
 
 import { Project } from "@prisma/client";
 import Link from "next/link";
-import Card from "@/components/Card";
-import Tag from "@/components/Tag";
 import Button from "@/components/Button";
-import Badge from "@/components/Badge";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -13,95 +10,108 @@ interface ProjectsListContentProps {
   projects: Project[];
 }
 
-export default function ProjectsListContent({ projects }: ProjectsListContentProps) {
+const ROMAN = ["I.", "II.", "III.", "IV.", "V.", "VI.", "VII.", "VIII.", "IX.", "X."];
+
+export default function ProjectsListContent({
+  projects,
+}: ProjectsListContentProps) {
   const { language, t } = useLanguage();
 
   return (
-    <div className="max-w-5xl mx-auto space-y-10">
-      {/* Page Header */}
-      <AnimatedSection delay={0.1} className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Badge variant="black">{t.projectsPage.badge}</Badge>
-        </div>
-        <h1 className="text-3xl md:text-4xl font-sans font-bold tracking-tight text-[var(--text-primary)]">
+    <div className="editorial-wrap py-16 md:py-24 space-y-14">
+      <AnimatedSection
+        immediate
+        className="space-y-4 border-b border-[var(--border-subtle)] pb-10 max-w-[46rem]"
+      >
+        <span className="font-serif italic text-base text-[var(--accent)] block">
+          {t.projectsPage.badge}
+        </span>
+        <h1 className="font-serif text-4xl sm:text-5xl font-normal tracking-tight text-[var(--text-primary)] leading-[1.06]">
           {t.projectsPage.title}
         </h1>
-        <p className="text-base font-sans text-[var(--text-secondary)] max-w-2xl leading-relaxed">
+        <p className="font-serif text-lg text-[var(--text-secondary)] leading-relaxed">
           {t.projectsPage.subtitle}
         </p>
       </AnimatedSection>
 
-      {/* Projects Grid */}
       {projects.length === 0 ? (
-        <AnimatedSection delay={0.2}>
-          <Card className="p-12 text-center">
-            <p className="font-mono text-sm text-[var(--text-muted)]">
-              {t.projectsPage.empty}
-            </p>
-            <div className="mt-4">
-              <Button href="/admin">{t.projectsPage.adminButton}</Button>
-            </div>
-          </Card>
-        </AnimatedSection>
+        <div className="py-12 space-y-5">
+          <p className="font-serif italic text-[var(--text-muted)]">
+            {t.projectsPage.empty}
+          </p>
+          <Button href="/admin">{t.projectsPage.adminButton}</Button>
+        </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <ul
+          role="list"
+          className="divide-y divide-[var(--border-subtle)] border-b border-[var(--border-subtle)]"
+        >
           {projects.map((project, index) => {
             const displayTitle =
-              language === "es" && project.titleEs ? project.titleEs : project.title;
+              language === "es" && project.titleEs
+                ? project.titleEs
+                : project.title;
             const displayDescription =
               language === "es" && project.descriptionEs
                 ? project.descriptionEs
                 : project.description;
 
             return (
-              <Card
+              <li
                 key={project.id}
-                delay={0.1 * index}
-                className="flex flex-col justify-between hover:border-[var(--accent)] transition-colors"
+                className="py-9 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-baseline"
               >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-wider">
-                      {project.status === "COMPLETED"
-                        ? language === "es"
-                          ? "Completado"
-                          : "Completed"
-                        : language === "es"
-                        ? "En Progreso"
-                        : "In Progress"}
-                    </span>
-                    {project.featured && (
-                      <span className="font-mono text-[10px] text-[var(--accent)] font-semibold uppercase tracking-wider">
-                        ★ {language === "es" ? "Destacado" : "Featured"}
-                      </span>
-                    )}
-                  </div>
-                  <h2 className="font-sans font-bold text-lg text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors">
-                    <Link href={`/projects/${project.slug || project.id}`}>{displayTitle}</Link>
+                <div className="md:col-span-2 space-y-1">
+                  <span className="font-serif italic text-xl text-[var(--accent)] block">
+                    {ROMAN[index] || `${index + 1}.`}
+                  </span>
+                  <span className="font-serif italic text-xs text-[var(--text-muted)] block">
+                    {project.status === "COMPLETED"
+                      ? language === "es"
+                        ? "Completado"
+                        : "Completed"
+                      : language === "es"
+                      ? "En curso"
+                      : "In progress"}
+                  </span>
+                </div>
+
+                <div className="md:col-span-7 space-y-2.5">
+                  <h2 className="font-serif text-2xl sm:text-[1.7rem] font-medium text-[var(--text-primary)]">
+                    <Link
+                      href={`/projects/${project.slug || project.id}`}
+                      className="hover:text-[var(--accent)] transition-colors"
+                    >
+                      {displayTitle}
+                    </Link>
                   </h2>
-                  <p className="text-sm font-sans leading-relaxed text-[var(--text-secondary)] min-h-[4rem]">
+                  <p className="font-serif text-base text-[var(--text-secondary)] leading-[1.75] max-w-[54ch]">
                     {displayDescription}
                   </p>
                   {project.techStack && (
-                    <div className="space-y-1.5">
-                      <span className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider block">
-                        {t.projectsPage.techStackLabel}
-                      </span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {project.techStack.split(",").map((tech) => (
-                          <Tag key={tech.trim()}>{tech.trim()}</Tag>
-                        ))}
-                      </div>
-                    </div>
+                    <p className="font-mono text-xs text-[var(--text-muted)] pt-1">
+                      {project.techStack
+                        .split(",")
+                        .map((tech) => tech.trim())
+                        .filter(Boolean)
+                        .join(" · ")}
+                    </p>
                   )}
                 </div>
-                <div className="flex gap-4 pt-4 mt-6 border-t border-[var(--border-subtle)] font-mono text-xs">
+
+                <div className="md:col-span-3 md:text-right flex flex-wrap md:justify-end gap-5 font-serif text-sm pt-2 md:pt-0">
+                  <Link
+                    href={`/projects/${project.slug || project.id}`}
+                    className="text-[var(--accent)] hover:underline underline-offset-4 py-1"
+                  >
+                    {t.projectsPage.readMore}
+                  </Link>
                   {project.repoUrl && (
                     <a
                       href={project.repoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[var(--accent)] font-medium hover:underline"
+                      className="text-[var(--text-muted)] hover:text-[var(--accent)] py-1 transition-colors"
                     >
                       {t.projectsPage.sourceCode}
                     </a>
@@ -111,16 +121,16 @@ export default function ProjectsListContent({ projects }: ProjectsListContentPro
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:underline"
+                      className="text-[var(--text-muted)] hover:text-[var(--accent)] py-1 transition-colors"
                     >
                       {t.projectsPage.liveDemo}
                     </a>
                   )}
                 </div>
-              </Card>
+              </li>
             );
           })}
-        </div>
+        </ul>
       )}
     </div>
   );

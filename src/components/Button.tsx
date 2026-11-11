@@ -19,7 +19,6 @@ export default function Button({
   className = "",
 }: ButtonProps) {
   const baseClass = `
-    inline-block px-5 py-2.5 font-mono text-xs uppercase tracking-wider
     ${variant === "primary" ? "btn-primary" : "btn-secondary"}
     ${className}
   `;
