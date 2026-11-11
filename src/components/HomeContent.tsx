@@ -59,72 +59,8 @@ export default function HomeContent({ featuredProjects }: HomeContentProps) {
         </div>
       </AnimatedSection>
 
-      {/* HR Recruiter Quick Snapshot Card */}
-      <AnimatedSection delay={0.2}>
-        <div className="bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-6 md:p-8 space-y-6 shadow-xs transition-colors duration-200">
-          <div className="flex flex-wrap justify-between items-center gap-3 border-b border-[var(--border-subtle)] pb-4">
-            <h2 className="font-sans text-lg font-semibold text-[var(--text-primary)]">
-              {t.home.recruiter.title}
-            </h2>
-            <span className="px-3 py-1 bg-[var(--accent-green-bg)] text-[var(--accent-green)] border border-[var(--accent-green-border)] text-xs font-mono font-medium rounded-full">
-              {t.home.recruiter.badge}
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 font-mono text-sm">
-            <div className="space-y-1.5 border-l-2 border-[var(--accent)] pl-4">
-              <span className="text-[var(--text-muted)] font-medium uppercase text-xs tracking-wider block">
-                {t.home.recruiter.targetRolesLabel}
-              </span>
-              <p className="font-semibold text-[var(--text-primary)]">
-                {t.home.recruiter.targetRolesValue}
-              </p>
-            </div>
-
-            <div className="space-y-1.5 border-l-2 border-[var(--border-subtle)] pl-4">
-              <span className="text-[var(--text-muted)] font-medium uppercase text-xs tracking-wider block">
-                {t.home.recruiter.educationLabel}
-              </span>
-              <p className="font-semibold text-[var(--text-primary)]">
-                {t.home.recruiter.educationDegree}
-              </p>
-              <p className="text-[var(--text-muted)] text-xs">
-                {t.home.recruiter.educationSchool}
-              </p>
-            </div>
-
-            <div className="space-y-1.5 border-l-2 border-[var(--border-subtle)] pl-4">
-              <span className="text-[var(--text-muted)] font-medium uppercase text-xs tracking-wider block">
-                {t.home.recruiter.locationLabel}
-              </span>
-              <p className="font-semibold text-[var(--text-primary)]">
-                {t.home.recruiter.locationValue}
-              </p>
-              <p className="text-[var(--accent)] font-medium text-xs">
-                {t.home.recruiter.locationModality}
-              </p>
-            </div>
-
-            <div className="space-y-1.5 border-l-2 border-[var(--border-subtle)] pl-4">
-              <span className="text-[var(--text-muted)] font-medium uppercase text-xs tracking-wider block">
-                {t.home.recruiter.contactLabel}
-              </span>
-              <p className="font-semibold text-[var(--text-primary)]">
-                {t.home.recruiter.contactLanguages}
-              </p>
-              <a
-                href="mailto:cristhiabnvictorrm@gmail.com"
-                className="text-[var(--accent)] hover:underline text-xs break-all"
-              >
-                {t.home.recruiter.contactAction}
-              </a>
-            </div>
-          </div>
-        </div>
-      </AnimatedSection>
-
       {/* Categorized Technical Skills */}
-      <AnimatedSection delay={0.3} className="space-y-8">
+      <AnimatedSection delay={0.15} className="space-y-8">
         <div>
           <h2 className="text-3xl font-sans font-bold text-[var(--text-primary)]">
             {t.home.skills.title}
