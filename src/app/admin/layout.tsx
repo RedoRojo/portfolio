@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
-  return <div className="site-wrap py-10">{children}</div>;
+  return children;
 }

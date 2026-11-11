@@ -1,28 +1,20 @@
 import type { Metadata } from "next";
-import { Source_Serif_4, Oswald, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import PageTransition from "@/components/PageTransition";
 import HeaderNav from "@/components/HeaderNav";
 import FooterContent from "@/components/FooterContent";
-import BackToTop from "@/components/BackToTop";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-const sourceSerif = Source_Serif_4({
-  variable: "--font-source-serif",
-  subsets: ["latin", "cyrillic"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const oswald = Oswald({
-  variable: "--font-oswald",
-  subsets: ["latin", "cyrillic"],
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
-  subsets: ["latin", "cyrillic"],
+  subsets: ["latin"],
   display: "swap",
 });
 
@@ -98,10 +90,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${sourceSerif.variable} ${oswald.variable} ${jetbrainsMono.variable} h-full`}
+      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <head>
-        <meta name="color-scheme" content="light dark" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -109,12 +100,7 @@ export default function RootLayout({
                 try {
                   var stored = localStorage.getItem('theme');
                   var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  var resolved = stored === 'dark' || stored === 'light' ? stored : (prefersDark ? 'dark' : 'light');
-                  var meta = document.querySelector('meta[name="color-scheme"]');
-                  if (meta) {
-                    meta.setAttribute('content', stored === 'dark' || stored === 'light' ? stored : 'light dark');
-                  }
-                  if (resolved === 'dark') {
+                  if (stored === 'dark' || (!stored && prefersDark)) {
                     document.documentElement.classList.add('dark');
                   } else {
                     document.documentElement.classList.remove('dark');
@@ -141,18 +127,15 @@ export default function RootLayout({
         <LanguageProvider>
           <HeaderNav />
 
-          <div id="scroll-sentinel" aria-hidden="true" className="h-px w-full pointer-events-none" />
-
           <main
             id="main-content"
             tabIndex={-1}
-            className="flex-1 w-full focus:outline-none"
+            className="flex-1 w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 focus:outline-none"
           >
             <PageTransition>{children}</PageTransition>
           </main>
 
           <FooterContent />
-          <BackToTop />
         </LanguageProvider>
       </body>
     </html>

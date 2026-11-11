@@ -18,35 +18,31 @@ export default function HeaderNav() {
   ];
 
   return (
-    <header className="band-monolith border-b-2 border-[var(--band-border)] sticky top-0 z-50 print:hidden">
-      <div className="site-wrap py-3.5 flex flex-col md:flex-row justify-between items-start md:items-center gap-3.5">
-        {/* Brand Plaquette */}
-        <div className="flex items-center gap-3.5">
-          <Link
-            href="/"
-            className="group flex items-center gap-3.5 min-w-0"
-          >
-            <span className="w-10 h-10 shrink-0 bg-[var(--band-accent)] text-[#151312] font-display font-bold text-lg tracking-wider flex items-center justify-center border border-[var(--band-border-strong)] group-hover:bg-[var(--band-ink)] transition-colors">
-              {t.header.monogram}
-            </span>
-
-            <span className="min-w-0 block">
-              <span className="font-display font-bold text-base sm:text-lg tracking-[0.06em] uppercase text-[var(--band-ink)] group-hover:text-[var(--band-accent)] transition-colors block">
-                {t.header.name}
-              </span>
-              <span className="font-mono text-[11px] text-[var(--band-muted)] tracking-wider truncate block">
-                {t.header.role}
-              </span>
-            </span>
-          </Link>
+    <header className="border-b border-[var(--border-subtle)] sticky top-0 bg-[var(--bg-primary)]/85 backdrop-blur-md z-50 transition-colors duration-200 print:hidden">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div className="flex items-center gap-3">
+          <span
+            aria-hidden="true"
+            className="w-2 h-2 rounded-full bg-[var(--accent-green)] inline-block animate-pulse motion-reduce:animate-none"
+          />
           <span className="visually-hidden">{t.header.status}</span>
+          <div>
+            <Link
+              href="/"
+              className="font-sans font-bold text-base tracking-tight text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors"
+            >
+              {t.header.name}
+            </Link>
+            <p className="font-mono text-xs text-[var(--text-secondary)] mt-0.5 flex items-center gap-2">
+              <span>{t.header.role}</span>
+            </p>
+          </div>
         </div>
 
-        {/* Navigation + Toggles */}
-        <div className="w-full md:w-auto flex items-center justify-between md:justify-end gap-4 flex-wrap">
+        <div className="flex items-center gap-4 sm:gap-5 flex-wrap">
           <nav
             aria-label={language === "es" ? "Principal" : "Primary"}
-            className="flex items-center flex-wrap gap-1 sm:gap-2 font-mono text-xs uppercase tracking-[0.1em]"
+            className="flex items-center flex-wrap gap-3 sm:gap-4 font-mono text-sm"
           >
             {navItems.map((item) => {
               const isActive =
@@ -59,10 +55,10 @@ export default function HeaderNav() {
                   key={item.href}
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`min-h-[36px] inline-flex items-center px-2.5 py-1.5 border-b-2 transition-colors ${
+                  className={`py-1 font-medium transition-colors ${
                     isActive
-                      ? "border-[var(--band-accent)] text-[var(--band-accent)] font-bold"
-                      : "border-transparent text-[var(--band-muted)] hover:text-[var(--band-ink)] hover:border-[var(--band-border)]"
+                      ? "text-[var(--accent)] font-semibold"
+                      : "text-[var(--text-secondary)] hover:text-[var(--accent)]"
                   }`}
                 >
                   {item.label}
@@ -71,7 +67,7 @@ export default function HeaderNav() {
             })}
           </nav>
 
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-2">
             <LanguageToggle />
             <ThemeToggle />
           </div>
