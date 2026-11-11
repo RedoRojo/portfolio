@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | Cristhian Victor Rojas Marquez",
   },
   description:
-    "Systems Engineering Honors graduate & ICPC national finalist. Full-Stack & AI-Assisted Software Engineer specializing in React, Next.js, NestJS, FastAPI, and dynamic code analysis.",
+    "Systems Engineering Honors graduate, University Lecturer & 3x ICPC national finalist. Full-Stack & AI-Native Software Engineer specializing in React, Next.js, NestJS, FastAPI, PostgreSQL, and dynamic analysis.",
   keywords: [
     "Cristhian Victor Rojas Marquez",
     "Software Engineer",

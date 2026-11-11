@@ -15,7 +15,7 @@ export const translations = {
     },
     footer: {
       role: "Cochabamba, Bolivia · Systems & Full-Stack Engineering",
-      lead: "Open to full-stack, backend, and engineering tooling roles.",
+      lead: "Open to full-stack, AI-native engineering, and backend systems roles.",
       email: "cristhiabnvictorrm@gmail.com",
       github: "GitHub",
       linkedin: "LinkedIn",
@@ -25,18 +25,18 @@ export const translations = {
     home: {
       location: "Cochabamba, Bolivia",
       heroName: "Cristhian Victor Rojas Marquez",
-      heroSubtitle: "Software Engineer — Full-Stack Systems & Dynamic Analysis",
+      heroSubtitle: "Software Engineer — Algorithmic Systems & AI-Native Development",
       heroDescription:
-        "Systems Engineering Honors graduate (UCB) and ICPC national finalist. I develop full-stack web applications, RESTful APIs, and dynamic code analysis tooling using TypeScript, React, NestJS, Python, and FastAPI.",
+        "Systems Engineering Honors graduate (UCB), University Lecturer in Data Structures, and 3x ICPC national finalist. I architect full-stack systems, RESTful APIs, and AI-native workflows across TypeScript, React, NestJS, Python, FastAPI, and PostgreSQL.",
       viewResume: "Read Resume",
       exploreProjects: "Selected projects →",
       coordinatesTitle: "Biographical Record",
       coordinates: [
         { label: "University", value: 'UCB "San Pablo" · Graduation by Excellence' },
-        { label: "Degree", value: "B.Sc. Systems Engineering (2021–2026)" },
+        { label: "Faculty", value: "Lecturer · Data Structures (Aug 2026–Present)" },
         { label: "Research", value: "PUC Chile · Dynamic Code Analysis" },
-        { label: "ICPC", value: "4th Nationwide · Bolivia Finals 2025" },
-        { label: "Leadership", value: "President · SCEIS UCB (2024–2025)" },
+        { label: "ICPC", value: "3x National Finalist · 4th Nationwide (2025)" },
+        { label: "Leadership", value: "President · SCEIS & Digital Brain UCB" },
       ],
       trajectory: {
         numeral: "I.",
@@ -44,14 +44,30 @@ export const translations = {
         milestones: [
           {
             numeral: "I",
+            role: "University Lecturer — Data Structures",
+            org: 'Universidad Católica Boliviana "San Pablo"',
+            period: "Aug 2026 — Present",
+            summary:
+              "Lead undergraduate instruction for Data Structures, designing lectures, algorithmic evaluations, and coding labs focused on complexity analysis, trees, graphs, and memory-efficient design.",
+          },
+          {
+            numeral: "II",
+            role: "Independent AI Engineer Consultant",
+            org: "Video Game Venture & Investment Fund",
+            period: "Aug 2026 — Sep 2026",
+            summary:
+              "Engineered an AI-powered investment decision-support platform synthesizing multi-source market intelligence with LLMs through agentic Claude Code and Codex engineering workflows.",
+          },
+          {
+            numeral: "III",
             role: "Research Assistant — Software Testing & Dynamic Analysis",
             org: "Pontificia Universidad Católica de Chile",
             period: "Aug 2025 — Dec 2025",
             summary:
-              "Engineered a Python dynamic code analysis tool to trace runtime execution and uncover silent test failures where passing suites masked inaccurate program behavior.",
+              "Engineered a Python dynamic code analysis tool to trace runtime execution and uncover silent assertion mismatches where passing suites masked inaccurate program behavior.",
           },
           {
-            numeral: "II",
+            numeral: "IV",
             role: "Full-Stack Software Developer (Freelance)",
             org: "Enterprise Administration System",
             period: "Jul 2025 — Nov 2025",
@@ -59,7 +75,7 @@ export const translations = {
               "Built modular REST APIs and end-to-end business workflows in React, NestJS, and TypeScript with strict domain validation and relational persistence.",
           },
           {
-            numeral: "III",
+            numeral: "V",
             role: "Teaching Assistant & Competitive Programming Mentor",
             org: 'Universidad Católica Boliviana "San Pablo"',
             period: "Feb 2023 — Dec 2025",
@@ -104,11 +120,11 @@ export const translations = {
               "FastAPI",
               "Node.js",
               "PostgreSQL",
+              "pgvector",
               "SQLite",
               "SQLAlchemy",
               "TypeORM",
               "Prisma ORM",
-              "RESTful APIs",
             ],
           },
           {
@@ -117,9 +133,9 @@ export const translations = {
             items: [
               "Google GenAI SDK (Gemini)",
               "Claude Code",
-              "Cursor",
+              "OpenAI Codex",
+              "Cursor & Copilot",
               "Unit & Dynamic Testing",
-              "Object-Oriented Programming",
               "Algorithms & Data Structures",
               "Docker",
               "Linux",
@@ -142,7 +158,7 @@ export const translations = {
       cvBadge: "Official Record",
       pdfReady: "Print & ATS Edition",
       name: "Cristhian Victor Rojas Marquez",
-      roleTitle: "Software Engineer — Full-Stack & AI-Assisted Development",
+      roleTitle: "Software Engineer — Algorithmic Problem Solver & AI-Native Developer",
       contactLocation: "Cochabamba, Bolivia",
       contactPhone: "+591 68301052",
       contactEmail: "cristhiabnvictorrm@gmail.com",
@@ -150,7 +166,7 @@ export const translations = {
       contactLinkedin: "linkedin.com/in/rojasredo",
       summaryTitle: "Professional Summary",
       summaryText:
-        "Systems Engineering Honors graduate and ICPC national finalist with hands-on experience building full-stack web applications, RESTful APIs, and automated code analysis tools. Strong foundation in Object-Oriented Programming (OOP), data structures, unit/dynamic testing, and modern frameworks (React, Next.js, NestJS, FastAPI). Adept at leveraging AI-assisted development workflows and LLM SDKs to ship clean, tested, and maintainable software at high velocity within agile teams.",
+        "Systems Engineering Honors graduate and competitive programmer (3x ICPC National Finalist in 2023, 2024, and 2025) driven by complex algorithmic problem-solving and analytical thinking. Focused on high-level system design, critical reasoning, and orchestrating AI-native and agentic workflows to solve hard engineering problems beyond routine code generation.",
       skillsTitle: "Technical Skills",
       skillsCategories: [
         {
@@ -165,28 +181,48 @@ export const translations = {
           accent: false,
         },
         {
-          label: "AI & Developer Tools",
+          label: "AI & Agentic Workflows",
           items:
-            "Cursor, GitHub Copilot, Claude Code, Google GenAI SDK (Gemini API), Git, Docker, Linux",
+            "Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Google GenAI SDK (Gemini API), LLMs",
           accent: false,
         },
         {
-          label: "Engineering Practices & Languages",
+          label: "Core Engineering & Languages",
           items:
-            "RESTful APIs, OOP, Unit & Dynamic Testing, Debugging, Data Structures & Algorithms, CI/CD, Scrum • Spanish (Native), English (Advanced)",
+            "Data Structures & Algorithms, RESTful APIs, OOP, Unit & Dynamic Testing, Debugging, Git, Docker, Linux • Spanish (Native), English (Advanced)",
           accent: true,
         },
       ],
       experienceTitle: "Technical Experience",
       experiences: [
         {
+          role: "University Lecturer — Data Structures",
+          company: 'Universidad Católica Boliviana "San Pablo"',
+          location: "Cochabamba, Bolivia",
+          dates: "Aug 2026 — Present",
+          bullets: [
+            "Lead undergraduate instruction for the Data Structures course, designing lectures, algorithmic evaluations, and coding labs focused on time/space complexity, trees, graphs, and memory-efficient design.",
+            "Previously served 6 semesters (Feb 2023 — Dec 2025) as Teaching Assistant for Data Structures, Programming I (OOP), and Introduction to Programming, conducting lab sessions and code reviews.",
+          ],
+        },
+        {
+          role: "Independent AI Engineer Consultant",
+          company: "Video Game Venture & Investment Fund (Independent Contract)",
+          location: "Remote",
+          dates: "Aug 2026 — Sep 2026",
+          bullets: [
+            "Engineered and maintained an AI-powered investment decision-support system that processes and synthesizes multi-source gaming market intelligence through Large Language Models (LLMs) to guide investor evaluations.",
+            "Leveraged agentic coding workflows (Claude Code and Codex) across the entire development and maintenance lifecycle to rapidly ship data processing pipelines and analytical modules.",
+          ],
+        },
+        {
           role: "Research Assistant — Software Testing & Dynamic Analysis",
           company: "Pontificia Universidad Católica de Chile",
           location: "Remote",
           dates: "Aug 2025 — Dec 2025",
           bullets: [
-            "Engineered a Python-based dynamic code analysis tool to evaluate software reliability and measure the effectiveness of automated test suites.",
-            "Automated runtime execution tracing and metric extraction to detect silent test failures where assertions did not match actual program behavior, streamlining debugging workflows.",
+            "Developed a Python-based dynamic code analysis tool to evaluate software reliability and automated test suite efficacy.",
+            "Automated runtime execution tracing and metric extraction to detect silent assertion mismatches where test assumptions diverged from actual program behavior.",
           ],
         },
         {
@@ -195,32 +231,29 @@ export const translations = {
           location: "Cochabamba, Bolivia",
           dates: "Jul 2025 — Nov 2025",
           bullets: [
-            "Collaborated within an agile development team to design and build a full-stack enterprise administration platform using React, NestJS, and TypeScript.",
-            "Architected and consumed modular REST APIs applying strict OOP design principles, implementing end-to-end business workflows, validation layers, and relational data persistence.",
-          ],
-        },
-        {
-          role: "Teaching Assistant & Competitive Programming Mentor",
-          company: 'Universidad Católica Boliviana "San Pablo"',
-          location: "Cochabamba, Bolivia",
-          dates: "Feb 2023 — Dec 2025",
-          bullets: [
-            "Instructed undergraduate laboratory sessions and conducted code reviews for Data Structures, Programming I (OOP), and Introduction to Programming across 6 semesters.",
-            "Mentored 20+ engineering students in algorithmic problem-solving, complexity analysis, and systematic debugging for competitive programming.",
-            "Co-organized 4 internal university programming contests, designing algorithmic problem statements, edge-case test suites, and automated grading setups.",
+            "Collaborated within an agile team to build a full-stack enterprise administration platform using React, NestJS, and TypeScript.",
+            "Designed and consumed modular REST APIs applying strict OOP principles, implementing validation layers and relational data persistence.",
           ],
         },
       ],
       projectsTitle: "Technical Projects",
       projects: [
         {
+          title: "Chasqui — Longitudinal News & Blindspot Intelligence",
+          tech: "FastAPI, Next.js 15, pgvector, Docker",
+          repoUrl: "https://github.com/RedoRojo/Chasqui",
+          bullets: [
+            "Built a full-stack news intelligence platform ingesting daily reports from 46 Bolivian outlets across all 9 departments using concurrent RSS/DOM scrapers, NLP geo-tagging, and GitHub Actions CI.",
+            "Engineered a two-stage semantic clustering pipeline (Articles -> Events -> Story Threads) backed by 128d embeddings in PostgreSQL + pgvector to track evolving timelines and quantify media blindspots.",
+          ],
+        },
+        {
           title: "Librerías Bolivia — Book Price Aggregator & API",
           tech: "FastAPI, Next.js, TypeScript, PostgreSQL",
           repoUrl: "https://github.com/RedoRojo/librerias-bolivia-api",
           bullets: [
-            "Built a full-stack web platform and RESTful API consolidating real-time book pricing and availability across 14 Bolivian bookstores and publishers.",
-            "Developed automated data ingestion adapters consuming Shopify and WooCommerce REST APIs, paired with a 4-level cascade deduplication and publisher-normalization engine.",
-            "Implemented a responsive Next.js (React, TypeScript, Tailwind CSS) frontend and fuzzy-search queries in PostgreSQL (pg_trgm, unaccent), backed by automated unit tests for API endpoints and data normalizers.",
+            "Built a full-stack platform and RESTful API consolidating real-time book pricing across 14 Bolivian bookstores and publishers via Shopify and WooCommerce REST APIs with a 4-level cascade deduplication engine.",
+            "Implemented a responsive Next.js (React, TypeScript) frontend and accent-insensitive fuzzy search in PostgreSQL (pg_trgm, unaccent), backed by automated unit tests.",
           ],
         },
         {
@@ -228,32 +261,36 @@ export const translations = {
           tech: "Python, FastAPI, Gemini 2.5 SDK, Tailwind CSS",
           repoUrl: "https://github.com/RedoRojo/escriba",
           bullets: [
-            "Developed an AI-native web application integrating the Google GenAI SDK (Gemini 2.5 Flash) via a FastAPI REST backend to analyze texts and classify errors across spelling, grammar, punctuation, semantics, and style.",
-            "Engineered structured JSON output schemas and research-grounded system prompts (arXiv:2511.01615) with IP rate limiting and an interactive inline correction UI.",
+            "Developed an AI-native web tool integrating the Google GenAI SDK (Gemini 2.5 Flash) via a FastAPI REST backend to classify errors across spelling, grammar, punctuation, semantics, and style using structured JSON schemas (arXiv:2511.01615).",
           ],
         },
       ],
       educationTitle: "Education",
       educationDegree:
-        "Bachelor of Science in Systems Engineering — Graduated with Honors (Graduation by Excellence)",
+        "Bachelor of Science in Systems Engineering — Graduated with Honors (Graduation by Excellence, Mar 2026)",
       educationUniversity: 'Universidad Católica Boliviana "San Pablo" • Cochabamba, Bolivia',
       educationDates: "Feb 2021 — Feb 2026",
-      achievementsTitle: "Achievements & Leadership",
+      achievementsTitle: "Volunteering, Leadership & Honors",
       achievements: [
         {
-          title: "4th Place Nationwide — ICPC South America South Finals (Nov 2025)",
+          title: "Deep Learning Tutor (Training Team) — Bolivian Delegation IOAI (Jul 2026)",
           description:
-            "Ranked among the top university competitive programming teams in Bolivia solving complex algorithmic problems under strict time constraints.",
+            "Supported the preparation of Bolivia's national team for the International Olympiad in Artificial Intelligence (IOAI), teaching Deep Learning foundations, neural network architectures, and practical model training.",
+        },
+        {
+          title: "President — Digital Brain Neurotechnology Student Society (Jan 2025 — Jan 2026)",
+          description:
+            "Led the university's neurotechnology student society at UCB Cochabamba, organizing interdisciplinary study groups, technical workshops, and student research activities.",
         },
         {
           title: "President — Systems Engineering Scientific Society, SCEIS UCB (Feb 2024 — Dec 2025)",
           description:
-            "Led student research initiatives, technical workshops, and academic programming events for the Systems Engineering department.",
+            "Directed organizational leadership, student activities, and academic engineering events across the Systems Engineering department.",
         },
         {
-          title: "Competitive Programming Honors",
+          title: "Competitive Programming Honors & ICPC Mentorship (2023 — 2025)",
           description:
-            'Silver Medal at "SanSi Cup 2023" Programming Contest (Dec 2023) & 7th Place Nationwide at the 2023 ICPC Bolivia Preliminary Contest (Sep 2023).',
+            '3x ICPC National Finalist (2023, 2024, 2025); 4th Place Nationwide at the 2025 ICPC South America South Finals (Nov 2025); Silver Medal at "SanSi Cup 2023" (Dec 2023); 7th Place at 2023 ICPC Bolivia Preliminary (Sep 2023). Mentored 20+ students and organized 4 internal UCB programming contests.',
         },
       ],
     },
@@ -261,7 +298,7 @@ export const translations = {
       badge: "Catalog of Works",
       title: "Selected Projects & Open Source",
       subtitle:
-        "Full-stack web applications, RESTful APIs, linguistic analyzers, and engineering utilities.",
+        "Full-stack web platforms, RESTful APIs, microservices, AI linguistic analyzers, and local developer utilities.",
       empty: "No projects published yet.",
       adminButton: "Admin Dashboard",
       techStackLabel: "Stack",
@@ -274,7 +311,7 @@ export const translations = {
       badge: "Archive",
       title: "Technical Blog & Notes",
       subtitle:
-        "Articles on software testing, backend architecture, full-stack development, and structured AI tools.",
+        "Articles on software testing, semantic clustering, backend architecture, full-stack systems, and structured AI tools.",
       empty: "No articles published yet.",
       adminButton: "Admin Dashboard",
       readArticle: "Read article →",
@@ -296,7 +333,7 @@ export const translations = {
     },
     footer: {
       role: "Cochabamba, Bolivia · Ingeniería de Sistemas y Full-Stack",
-      lead: "Disponible para roles en desarrollo full-stack, backend y herramientas de ingeniería.",
+      lead: "Disponible para roles en desarrollo full-stack, ingeniería AI-native y sistemas backend.",
       email: "cristhiabnvictorrm@gmail.com",
       github: "GitHub",
       linkedin: "LinkedIn",
@@ -306,18 +343,18 @@ export const translations = {
     home: {
       location: "Cochabamba, Bolivia",
       heroName: "Cristhian Victor Rojas Marquez",
-      heroSubtitle: "Ingeniero de Software — Desarrollo Full-Stack y Análisis Dinámico",
+      heroSubtitle: "Ingeniero de Software — Sistemas Algorítmicos y Desarrollo AI-Native",
       heroDescription:
-        "Graduado con honores en Ingeniería de Sistemas (UCB) y finalista nacional ICPC. Desarrollo aplicaciones web full-stack, APIs RESTful y herramientas de análisis dinámico de código con TypeScript, React, NestJS, Python y FastAPI.",
+        "Graduado con honores en Ingeniería de Sistemas (UCB), Docente Universitario de Estructuras de Datos y 3x finalista nacional ICPC. Diseño sistemas full-stack, APIs RESTful y flujos con IA en TypeScript, React, NestJS, Python, FastAPI y PostgreSQL.",
       viewResume: "Abrir CV",
       exploreProjects: "Proyectos seleccionados →",
       coordinatesTitle: "Ficha Académica y Técnica",
       coordinates: [
         { label: "Universidad", value: 'UCB "San Pablo" · Titulación por Excelencia' },
-        { label: "Grado", value: "Lic. Ingeniería de Sistemas (2021–2026)" },
+        { label: "Docencia", value: "Docente · Estructuras de Datos (Ago 2026–Hoy)" },
         { label: "Investigación", value: "PUC Chile · Análisis Dinámico" },
-        { label: "ICPC", value: "4to Lugar Nacional · Bolivia 2025" },
-        { label: "Liderazgo", value: "Presidente · SCEIS UCB (2024–2025)" },
+        { label: "ICPC", value: "3x Finalista Nacional · 4to Lugar (2025)" },
+        { label: "Liderazgo", value: "Presidente · SCEIS y Digital Brain UCB" },
       ],
       trajectory: {
         numeral: "I.",
@@ -325,14 +362,30 @@ export const translations = {
         milestones: [
           {
             numeral: "I",
+            role: "Docente Universitario — Estructuras de Datos",
+            org: 'Universidad Católica Boliviana "San Pablo"',
+            period: "Ago 2026 — Presente",
+            summary:
+              "Responsable de la cátedra de Estructuras de Datos en pregrado, diseñando clases, evaluaciones algorítmicas y laboratorios centrados en complejidad, árboles, grafos y diseño eficiente en memoria.",
+          },
+          {
+            numeral: "II",
+            role: "Consultor Independiente en Ingeniería de IA",
+            org: "Fondo de Inversión y Venture de Videojuegos",
+            period: "Ago 2026 — Sep 2026",
+            summary:
+              "Desarrollé una plataforma de apoyo a decisiones de inversión basada en LLMs para sintetizar inteligencia de mercado, aplicando flujos agénticos con Claude Code y Codex en todo el ciclo de entrega.",
+          },
+          {
+            numeral: "III",
             role: "Asistente de Investigación — Pruebas y Análisis Dinámico",
             org: "Pontificia Universidad Católica de Chile",
             period: "Ago 2025 — Dic 2025",
             summary:
-              "Desarrollé una herramienta en Python para trazar ejecución en tiempo de corrida y detectar fallos silenciosos donde las suites aprobadas ocultaban errores reales.",
+              "Desarrollé una herramienta en Python para trazar ejecución en tiempo de corrida y detectar aserciones silenciosas donde las suites aprobadas ocultaban errores reales.",
           },
           {
-            numeral: "II",
+            numeral: "IV",
             role: "Desarrollador Full-Stack (Freelance)",
             org: "Sistema de Administración Empresarial",
             period: "Jul 2025 — Nov 2025",
@@ -340,7 +393,7 @@ export const translations = {
               "Construí APIs REST modulares y flujos empresariales en React, NestJS y TypeScript aplicando validación de dominio estricta y persistencia relacional.",
           },
           {
-            numeral: "III",
+            numeral: "V",
             role: "Auxiliar de Docencia y Mentor de Programación",
             org: 'Universidad Católica Boliviana "San Pablo"',
             period: "Feb 2023 — Dic 2025",
@@ -385,11 +438,11 @@ export const translations = {
               "FastAPI",
               "Node.js",
               "PostgreSQL",
+              "pgvector",
               "SQLite",
               "SQLAlchemy",
               "TypeORM",
               "Prisma ORM",
-              "APIs RESTful",
             ],
           },
           {
@@ -398,9 +451,9 @@ export const translations = {
             items: [
               "Google GenAI SDK (Gemini)",
               "Claude Code",
-              "Cursor",
+              "OpenAI Codex",
+              "Cursor y Copilot",
               "Pruebas Unitarias y Dinámicas",
-              "Programación Orientada a Objetos",
               "Algoritmos y Estructuras",
               "Docker",
               "Linux",
@@ -423,7 +476,7 @@ export const translations = {
       cvBadge: "Expediente Oficial",
       pdfReady: "Edición ATS e Impresión",
       name: "Cristhian Victor Rojas Marquez",
-      roleTitle: "Ingeniero de Software — Desarrollo Full-Stack y Asistido por IA",
+      roleTitle: "Ingeniero de Software — Resolución Algorítmica y Desarrollo AI-Native",
       contactLocation: "Cochabamba, Bolivia",
       contactPhone: "+591 68301052",
       contactEmail: "cristhiabnvictorrm@gmail.com",
@@ -431,7 +484,7 @@ export const translations = {
       contactLinkedin: "linkedin.com/in/rojasredo",
       summaryTitle: "Resumen Profesional",
       summaryText:
-        "Graduado con honores en Ingeniería de Sistemas (Titulación por Excelencia) y finalista nacional de ICPC con experiencia práctica construyendo aplicaciones web full-stack, APIs RESTful y herramientas automatizadas de análisis de código. Sólida base en Programación Orientada a Objetos (POO), estructuras de datos, pruebas unitarias/dinámicas y frameworks modernos (React, Next.js, NestJS, FastAPI). Especializado en flujos de desarrollo asistidos por IA y SDKs de LLMs para entregar software limpio, probado y mantenible a alta velocidad en equipos ágiles.",
+        "Graduado con honores en Ingeniería de Sistemas y programador competitivo (3x Finalista Nacional ICPC en 2023, 2024 y 2025) orientado a la resolución algorítmica compleja y al pensamiento analítico. Enfocado en diseño de sistemas de alto nivel, razonamiento crítico y orquestación de flujos AI-native y agénticos para resolver retos complejos de ingeniería más allá de la generación rutinaria de código.",
       skillsTitle: "Habilidades Técnicas",
       skillsCategories: [
         {
@@ -446,28 +499,48 @@ export const translations = {
           accent: false,
         },
         {
-          label: "IA y Herramientas de Desarrollo",
+          label: "IA y Flujos Agénticos",
           items:
-            "Cursor, GitHub Copilot, Claude Code, Google GenAI SDK (Gemini API), Git, Docker, Linux",
+            "Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Google GenAI SDK (Gemini API), LLMs",
           accent: false,
         },
         {
-          label: "Prácticas de Ingeniería e Idiomas",
+          label: "Ingeniería Base e Idiomas",
           items:
-            "APIs RESTful, POO, Pruebas Unitarias y Dinámicas, Depuración, Estructuras de Datos y Algoritmos, CI/CD, Scrum • Español (Nativo), Inglés (Avanzado)",
+            "Estructuras de Datos y Algoritmos, APIs RESTful, POO, Pruebas Unitarias y Dinámicas, Depuración, Git, Docker, Linux • Español (Nativo), Inglés (Avanzado)",
           accent: true,
         },
       ],
       experienceTitle: "Experiencia Técnica",
       experiences: [
         {
+          role: "Docente Universitario — Estructuras de Datos",
+          company: 'Universidad Católica Boliviana "San Pablo"',
+          location: "Cochabamba, Bolivia",
+          dates: "Ago 2026 — Presente",
+          bullets: [
+            "Dirijo la enseñanza de pregrado en la materia de Estructuras de Datos, diseñando clases, evaluaciones algorítmicas y laboratorios centrados en complejidad temporal/espacial, árboles, grafos y diseño eficiente en memoria.",
+            "Previamente ejercí durante 6 semestres (Feb 2023 — Dic 2025) como Auxiliar de Docencia en Estructuras de Datos, Programación I (POO) e Introducción a la Programación, dirigiendo laboratorios y revisiones de código.",
+          ],
+        },
+        {
+          role: "Consultor Independiente en Ingeniería de IA",
+          company: "Fondo de Inversión y Venture de Videojuegos (Contrato Independiente)",
+          location: "Remoto",
+          dates: "Ago 2026 — Sep 2026",
+          bullets: [
+            "Diseñé y mantuve un sistema de apoyo a decisiones de inversión impulsado por IA que procesa y sintetiza inteligencia del mercado de videojuegos mediante LLMs para guiar evaluaciones.",
+            "Apliqué flujos agénticos de programación (Claude Code y Codex) en todo el ciclo de desarrollo y mantenimiento para entregar pipelines de procesamiento y módulos analíticos con rapidez.",
+          ],
+        },
+        {
           role: "Asistente de Investigación — Pruebas de Software y Análisis Dinámico",
           company: "Pontificia Universidad Católica de Chile",
           location: "Remoto",
           dates: "Ago 2025 — Dic 2025",
           bullets: [
-            "Desarrollé una herramienta de análisis dinámico de código basada en Python para evaluar la confiabilidad del software y medir la efectividad de suites de pruebas automatizadas.",
-            "Automaticé el trazado de ejecución en tiempo de corrida y la extracción de métricas para detectar fallos silenciosos donde las aserciones no coincidían con el comportamiento real del programa.",
+            "Desarrollé una herramienta de análisis dinámico de código basada en Python para evaluar la confiabilidad del software y la eficacia de suites de pruebas automatizadas.",
+            "Automaticé el trazado de ejecución en tiempo de corrida y la extracción de métricas para detectar discrepancias silenciosas entre las aserciones y el comportamiento real del programa.",
           ],
         },
         {
@@ -476,32 +549,29 @@ export const translations = {
           location: "Cochabamba, Bolivia",
           dates: "Jul 2025 — Nov 2025",
           bullets: [
-            "Colaboré dentro de un equipo de desarrollo ágil para diseñar y construir una plataforma empresarial de administración full-stack usando React, NestJS y TypeScript.",
-            "Diseñé y consumí APIs REST modulares aplicando principios estrictos de POO, implementando flujos de negocio de extremo a extremo, capas de validación y persistencia de datos relacional.",
-          ],
-        },
-        {
-          role: "Auxiliar de Docencia y Mentor de Programación Competitiva",
-          company: 'Universidad Católica Boliviana "San Pablo"',
-          location: "Cochabamba, Bolivia",
-          dates: "Feb 2023 — Dic 2025",
-          bullets: [
-            "Impartí sesiones de laboratorio de pregrado y revisiones de código para Estructuras de Datos, Programación I (POO) e Introducción a la Programación durante 6 semestres.",
-            "Mentoricé a más de 20 estudiantes de ingeniería en resolución de problemas algorítmicos, análisis de complejidad y depuración sistemática para programación competitiva.",
-            "Co-organicé 4 competencias internas de programación universitaria, diseñando problemas algorítmicos, casos de prueba borde y sistemas de calificación automatizada.",
+            "Colaboré dentro de un equipo ágil para diseñar y construir una plataforma empresarial de administración full-stack usando React, NestJS y TypeScript.",
+            "Diseñé y consumí APIs REST modulares aplicando principios estrictos de POO, capas de validación y persistencia relacional.",
           ],
         },
       ],
       projectsTitle: "Proyectos Técnicos",
       projects: [
         {
+          title: "Chasqui — Inteligencia Informativa Longitudinal y Puntos Ciegos",
+          tech: "FastAPI, Next.js 15, pgvector, Docker",
+          repoUrl: "https://github.com/RedoRojo/Chasqui",
+          bullets: [
+            "Construí una plataforma full-stack de inteligencia informativa que ingiere reportes diarios de 46 medios de los 9 departamentos de Bolivia mediante scrapers concurrentes RSS/DOM, geo-etiquetado NLP y CI en GitHub Actions.",
+            "Diseñé un pipeline de clustering semántico en dos etapas (Artículos -> Eventos -> Hilos Históricos) respaldado por embeddings de 128 dimensiones en PostgreSQL + pgvector para detectar puntos ciegos mediáticos.",
+          ],
+        },
+        {
           title: "Librerías Bolivia — Agregador de Precios de Libros y API",
           tech: "FastAPI, Next.js, TypeScript, PostgreSQL",
           repoUrl: "https://github.com/RedoRojo/librerias-bolivia-api",
           bullets: [
-            "Construí una plataforma web full-stack y API RESTful que consolida precios y disponibilidad de libros en tiempo real de 14 librerías y editoriales de Bolivia.",
-            "Desarrollé adaptadores automatizados de ingesta de datos consumiendo APIs REST de Shopify y WooCommerce, junto con un motor de deduplicación en cascada de 4 niveles y normalización de editoriales.",
-            "Implementé un frontend responsivo en Next.js (React, TypeScript, Tailwind CSS) y búsquedas difusas en PostgreSQL (pg_trgm, unaccent), respaldado por pruebas unitarias automatizadas.",
+            "Construí una plataforma web full-stack y API RESTful que consolida precios en tiempo real de 14 librerías y editoriales de Bolivia mediante APIs REST de Shopify y WooCommerce con un motor de deduplicación en cascada de 4 niveles.",
+            "Implementé un frontend responsivo en Next.js (React, TypeScript) y búsqueda difusa insensible a tildes en PostgreSQL (pg_trgm, unaccent), respaldado por pruebas unitarias automatizadas.",
           ],
         },
         {
@@ -509,32 +579,36 @@ export const translations = {
           tech: "Python, FastAPI, Gemini 2.5 SDK, Tailwind CSS",
           repoUrl: "https://github.com/RedoRojo/escriba",
           bullets: [
-            "Desarrollé una aplicación web nativa de IA integrando Google GenAI SDK (Gemini 2.5 Flash) mediante un backend REST en FastAPI para analizar textos y clasificar errores de ortografía, gramática, puntuación, semántica y estilo.",
-            "Diseñé esquemas de salida JSON estructurados y prompts de sistema fundamentados en investigación (arXiv:2511.01615) con limitación de tasa por IP e interfaz interactiva de corrección en línea.",
+            "Desarrollé una aplicación web nativa de IA integrando Google GenAI SDK (Gemini 2.5 Flash) mediante un backend REST en FastAPI para clasificar errores de ortografía, gramática, puntuación, semántica y estilo con esquemas JSON estructurados (arXiv:2511.01615).",
           ],
         },
       ],
       educationTitle: "Educación",
       educationDegree:
-        "Licenciatura en Ingeniería de Sistemas — Graduado con Honores (Titulación por Excelencia)",
+        "Licenciatura en Ingeniería de Sistemas — Graduado con Honores (Titulación por Excelencia, Mar 2026)",
       educationUniversity: 'Universidad Católica Boliviana "San Pablo" • Cochabamba, Bolivia',
       educationDates: "Feb 2021 — Feb 2026",
-      achievementsTitle: "Logros y Liderazgo",
+      achievementsTitle: "Voluntariado, Liderazgo y Reconocimientos",
       achievements: [
         {
-          title: "4to Lugar Nacional — Final Sudamericana ICPC Sur (Nov 2025)",
+          title: "Tutor de Deep Learning (Equipo de Entrenamiento) — Delegación Boliviana IOAI (Jul 2026)",
           description:
-            "Clasificado entre los mejores equipos universitarios de programación competitiva de Bolivia resolviendo problemas algorítmicos complejos bajo estrictos límites de tiempo.",
+            "Apoyé la preparación del equipo nacional de Bolivia rumbo a la International Olympiad in Artificial Intelligence (IOAI), enseñando fundamentos de Deep Learning, arquitecturas neuronales y entrenamiento práctico.",
+        },
+        {
+          title: "Presidente — Sociedad Estudiantil de Neurotecnología Digital Brain (Ene 2025 — Ene 2026)",
+          description:
+            "Lideré la sociedad estudiantil de neurotecnología en la UCB Cochabamba, organizando grupos interdisciplinarios, talleres técnicos y actividades de investigación.",
         },
         {
           title: "Presidente — Sociedad Científica de Ingeniería de Sistemas, SCEIS UCB (Feb 2024 — Dic 2025)",
           description:
-            "Lideré iniciativas de investigación estudiantil, talleres técnicos y eventos académicos de programación para el departamento de Ingeniería de Sistemas.",
+            "Dirigí la gestión organizacional, actividades estudiantiles y eventos académicos de ingeniería en el departamento de Ingeniería de Sistemas.",
         },
         {
-          title: "Reconocimientos en Programación Competitiva",
+          title: "Distinciones en Programación Competitiva y Mentoría ICPC (2023 — 2025)",
           description:
-            'Medalla de Plata en el concurso de programación "SanSi Cup 2023" (Dic 2023) y 7mo Lugar Nacional en la Preliminar Boliviana de ICPC 2023 (Sep 2023).',
+            '3x Finalista Nacional ICPC (2023, 2024, 2025); 4to Lugar Nacional en la Final Sudamericana ICPC Sur 2025 (Nov 2025); Medalla de Plata en "SanSi Cup 2023" (Dic 2023); 7mo Lugar en la Preliminar Boliviana ICPC 2023 (Sep 2023). Mentoricé a más de 20 estudiantes y organicé 4 concursos internos.',
         },
       ],
     },
@@ -542,7 +616,7 @@ export const translations = {
       badge: "Catálogo de Proyectos",
       title: "Proyectos y Software Open Source",
       subtitle:
-        "Aplicaciones web full-stack, APIs RESTful, analizadores lingüísticos y herramientas de ingeniería.",
+        "Plataformas web full-stack, APIs RESTful, microservicios, analizadores lingüísticos con IA y herramientas de productividad.",
       empty: "Aún no hay proyectos publicados.",
       adminButton: "Panel de Administración",
       techStackLabel: "Tecnologías",
@@ -555,7 +629,7 @@ export const translations = {
       badge: "Archivo",
       title: "Blog Técnico y Notas",
       subtitle:
-        "Artículos sobre pruebas de software, arquitectura backend, desarrollo full-stack y herramientas con IA.",
+        "Artículos sobre pruebas de software, clustering semántico, arquitectura backend, sistemas full-stack y herramientas con IA.",
       empty: "Aún no hay artículos publicados.",
       adminButton: "Panel de Administración",
       readArticle: "Leer artículo →",
