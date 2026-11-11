@@ -31,9 +31,9 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="max-w-md mx-auto my-12 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-8 space-y-6 shadow-sm">
+    <div className="max-w-md mx-auto my-12 bg-[var(--bg-card)] border-2 border-[var(--border-strong)] p-8 space-y-6">
       <div className="space-y-2 border-b border-[var(--border-subtle)] pb-4">
-        <h1 className="text-xl font-sans font-bold tracking-tight text-[var(--text-primary)]">
+        <h1 className="text-xl font-display font-bold uppercase tracking-tight text-[var(--text-primary)]">
           Access Restricted
         </h1>
         <p className="text-xs font-mono text-[var(--text-secondary)]">
@@ -61,7 +61,7 @@ export default function LoginPage() {
             required
             aria-invalid={error ? "true" : undefined}
             aria-describedby={error ? "login-error" : undefined}
-            className="w-full px-3 py-2 border border-[var(--border-subtle)] bg-[var(--bg-secondary)] rounded-lg focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:border-[var(--accent)] text-sm text-[var(--text-primary)]"
+            className="w-full px-3 py-2 border border-[var(--border-strong)] bg-[var(--bg-secondary)] focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:border-[var(--accent)] text-sm text-[var(--text-primary)]"
           />
         </div>
 
@@ -70,7 +70,7 @@ export default function LoginPage() {
             id="login-error"
             role="alert"
             aria-live="polite"
-            className="border border-[var(--accent-border)] bg-[var(--accent-subtle)] rounded-lg p-3 text-xs text-[var(--accent)] font-mono"
+            className="border border-[var(--accent-border)] bg-[var(--accent-subtle)] p-3 text-xs text-[var(--accent)] font-mono"
           >
             {error}
           </div>

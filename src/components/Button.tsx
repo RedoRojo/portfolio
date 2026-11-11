@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 interface ButtonProps {
   children: ReactNode;
   href?: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "monolith-primary" | "monolith-secondary";
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
   className?: string;
@@ -18,9 +18,16 @@ export default function Button({
   onClick,
   className = "",
 }: ButtonProps) {
+  const variantClasses = {
+    primary: "btn-primary",
+    secondary: "btn-secondary",
+    "monolith-primary": "btn-monolith-primary",
+    "monolith-secondary": "btn-monolith-secondary",
+  };
+
   const baseClass = `
-    inline-block px-5 py-2.5 font-mono text-xs uppercase tracking-wider
-    ${variant === "primary" ? "btn-primary" : "btn-secondary"}
+    font-mono text-xs uppercase tracking-[0.12em]
+    ${variantClasses[variant]}
     ${className}
   `;
 
