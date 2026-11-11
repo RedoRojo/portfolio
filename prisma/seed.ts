@@ -111,7 +111,7 @@ Un ecosistema modular de utilidades web enfocadas en productividad, integradas e
       techStack: "TypeScript, Next.js, Python, React, Tailwind CSS",
       repoUrl: "https://github.com/RedoRojo/tools-hub",
       liveUrl: null,
-      featured: true,
+      featured: false,
       status: "COMPLETED",
     },
     {
@@ -146,6 +146,42 @@ El código fuente que impulsa este sitio web personal, portafolio de ingeniería
       repoUrl: "https://github.com/RedoRojo/portfolio",
       liveUrl: "https://redoportfolio.vercel.app",
       featured: false,
+      status: "COMPLETED",
+    },
+    {
+      title: "Chasqui — News Intelligence & Media Blindspot Platform",
+      titleEs: "Chasqui — Plataforma de Inteligencia Informativa y Puntos Ciegos",
+      slug: "chasqui",
+      description:
+        "Longitudinal news aggregation and media blindspot intelligence platform monitoring 46 Bolivian news sources across all 9 departments with a two-stage semantic clustering engine (FastAPI, Next.js 15, pgvector).",
+      descriptionEs:
+        "Plataforma de agregación longitudinal de noticias e inteligencia sobre puntos ciegos mediáticos que monitorea 46 fuentes de Bolivia en los 9 departamentos mediante clustering semántico en dos etapas (FastAPI, Next.js 15, pgvector).",
+      content: `# Chasqui — Longitudinal News Aggregation & Media Blindspot Intelligence Platform
+
+A full-stack news intelligence and longitudinal tracking platform built to solve **media fragmentation, regional underrepresentation, and short-term news amnesia in Bolivia**.
+
+## System Architecture
+
+- **Three-Tier Temporal Model**: Models news as \`Articles\` → \`StoryEvents\` (±96h clusters) → \`StoryThreads\` (evolving multi-week timelines).
+- **Two-Stage Semantic & Entity Clustering**: Combines Spanish morphological normalization, 128d semantic embeddings (\`pgvector\`), named-entity overlap, and Bolivian geographic weighting.
+- **Media Blindspot Detection**: Classifies **46 verified Bolivian news outlets** across 4 editorial tiers (\`mainstream\`, \`alternative\`, \`community\`, \`regional\`) to quantify coverage asymmetry and surface underreported events.
+- **High-Concurrency Collector & Editorial UI**: Concurrent \`httpx\` + \`ThreadPoolExecutor\` RSS/DOM scraper with \`APScheduler\` daily runs and a **Next.js 15 + React 19 + TypeScript** frontend.
+`,
+      contentEs: `# Chasqui — Plataforma de Inteligencia Informativa y Puntos Ciegos Mediáticos
+
+Una plataforma full-stack de inteligencia informativa y seguimiento longitudinal diseñada para resolver la **fragmentación mediática, la subrepresentación regional y la amnesia informativa en Bolivia**.
+
+## Arquitectura del Sistema
+
+- **Modelo Temporal en Tres Niveles**: Modela las noticias como \`Articles\` → \`StoryEvents\` (clústeres de ±96h) → \`StoryThreads\` (líneas de tiempo evolutivas).
+- **Motor de Clustering Semántico en Dos Etapas**: Combina normalización morfológica en español, embeddings de 128 dimensiones (\`pgvector\`), coincidencia de entidades nombradas y ponderación geográfica por departamento.
+- **Detección de Puntos Ciegos Mediáticos**: Clasifica **46 medios bolivianos verificados** en 4 niveles editoriales (\`mainstream\`, \`alternative\`, \`community\`, \`regional\`) para medir asimetrías de cobertura.
+- **Scraper Concurrente y UI Editorial**: Colector paralelo con \`httpx\` + \`ThreadPoolExecutor\`, programación diaria con \`APScheduler\` y frontend en **Next.js 15 + React 19 + TypeScript**.
+`,
+      techStack: "FastAPI, Next.js 15, TypeScript, Python, PostgreSQL, pgvector, Tailwind CSS",
+      repoUrl: "https://github.com/RedoRojo/Chasqui",
+      liveUrl: null,
+      featured: true,
       status: "COMPLETED",
     },
   ];
@@ -282,6 +318,46 @@ Al desarrollar **Escriba**, un analizador lingüístico en español asistido por
       tags: "AI, Gemini SDK, FastAPI, Python",
       published: true,
       projectId: createdProjects["escriba-ai"],
+    },
+    {
+      title: "Two-Stage Semantic Clustering & Media Blindspot Detection in Chasqui",
+      titleEs: "Clustering Semántico en Dos Etapas y Puntos Ciegos Mediáticos en Chasqui",
+      slug: "chasqui-semantic-clustering-media-blindspots",
+      summary:
+        "How Chasqui monitors 46 Bolivian news sources and chains daily reports into longitudinal story threads using pgvector embeddings and entity overlap.",
+      summaryEs:
+        "Cómo Chasqui monitorea 46 fuentes informativas en Bolivia y encadena reportes diarios en hilos longitudinales usando embeddings en pgvector y coincidencia de entidades.",
+      content: `# Two-Stage Semantic Clustering & Media Blindspot Detection
+
+Standard news aggregators treat each headline as an isolated event. When building **Chasqui**, the core challenge was turning daily dispatches from **46 Bolivian news portals** into coherent, evolving timelines.
+
+## Three-Tier Temporal Model
+
+1. **\`Article\`**: Enriched with Bolivian department geo-tagging, named entities, and 128-dimensional semantic vectors (\`pgvector\`).
+2. **\`StoryEvent\`**: Intra-window clustering (±96 hours) grouping multi-outlet reports covering the same occurrence.
+3. **\`StoryThread\`**: Longitudinal chaining linking sequential events over weeks or months to track public issues end to end.
+
+## Quantifying Media Blindspots
+
+By tagging every source into \`mainstream\`, \`alternative\`, \`community\`, or \`regional\` tiers, Chasqui automatically flags **Blindspot Events** covered by local or independent press with zero mainstream visibility.
+`,
+      contentEs: `# Clustering Semántico en Dos Etapas y Puntos Ciegos Mediáticos
+
+Los agregadores tradicionales muestran titulares aislados. Al construir **Chasqui**, el desafío principal fue transformar reportes diarios de **46 portales de Bolivia** en líneas de tiempo evolutivas y coherentes.
+
+## Modelo Temporal en Tres Niveles
+
+1. **\`Article\`**: Enriquecido con detección geográfica departamental, entidades nombradas y vectores semánticos de 128 dimensiones (\`pgvector\`).
+2. **\`StoryEvent\`**: Agrupación temporal (±96 horas) que reúne notas de múltiples medios sobre un mismo acontecimiento.
+3. **\`StoryThread\`**: Encadenamiento longitudinal de eventos secuenciales a lo largo de semanas o meses.
+
+## Detección de Puntos Ciegos
+
+Clasificando cada fuente en niveles \`mainstream\`, \`alternative\`, \`community\` o \`regional\`, Chasqui identifica automáticamente eventos cubiertos por prensa regional o independiente sin visibilidad en medios masivos.
+`,
+      tags: "FastAPI, pgvector, NLP, Next.js 15",
+      published: true,
+      projectId: createdProjects["chasqui"],
     },
   ];
 
