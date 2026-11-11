@@ -1,6 +1,7 @@
 "use client";
 
-import React, { createContext, useContext, useSyncExternalStore } from "react";
+import React, { createContext, useContext, useEffect, useSyncExternalStore } from "react";
+import { MotionConfig } from "framer-motion";
 import { Language, translations } from "@/lib/translations";
 
 interface LanguageContextType {
@@ -33,6 +34,10 @@ function getServerSnapshot(): Language {
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const language = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
   const setLanguage = (lang: Language) => {
     try {
       localStorage.setItem("portfolio_lang", lang);
@@ -57,7 +62,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         t: currentTranslations,
       }}
     >
-      {children}
+      <MotionConfig reducedMotion="user">{children}</MotionConfig>
     </LanguageContext.Provider>
   );
 }

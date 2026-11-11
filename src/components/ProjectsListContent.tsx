@@ -57,7 +57,7 @@ export default function ProjectsListContent({ projects }: ProjectsListContentPro
               <Card
                 key={project.id}
                 delay={0.1 * index}
-                className="flex flex-col justify-between hover:border-[var(--accent)] transition-all"
+                className="flex flex-col justify-between hover:border-[var(--accent)] transition-colors"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between gap-2">

@@ -6,7 +6,7 @@ export default function FooterContent() {
   const { t } = useLanguage();
 
   return (
-    <footer className="border-t border-[var(--border-subtle)] bg-[var(--bg-card)] mt-16 py-10 text-sm font-sans text-[var(--text-secondary)] transition-colors duration-200">
+    <footer className="border-t border-[var(--border-subtle)] bg-[var(--bg-card)] mt-16 py-10 text-sm font-sans text-[var(--text-secondary)] transition-colors duration-200 print:hidden">
       <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div className="flex flex-wrap items-center gap-2">
           <span className="font-medium text-[var(--text-primary)]">

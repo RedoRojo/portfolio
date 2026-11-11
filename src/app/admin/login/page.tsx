@@ -31,12 +31,12 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="max-w-md mx-auto my-12 bg-grit border border-ash/40 p-8 space-y-6">
-      <div className="space-y-2 border-b border-ash/15 pb-4">
+    <div className="max-w-md mx-auto my-12 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-8 space-y-6 shadow-sm">
+      <div className="space-y-2 border-b border-[var(--border-subtle)] pb-4">
         <h1 className="text-xl font-sans font-bold tracking-tight text-[var(--text-primary)]">
           Access Restricted
         </h1>
-        <p className="text-xs font-mono text-ash">
+        <p className="text-xs font-mono text-[var(--text-secondary)]">
           Administrator credentials required.
         </p>
       </div>
@@ -45,23 +45,33 @@ export default function LoginPage() {
         <div className="space-y-2">
           <label
             htmlFor="pass"
-            className="text-xs font-bold uppercase tracking-wider block text-bone/60"
+            className="text-xs font-bold uppercase tracking-wider block text-[var(--text-secondary)]"
           >
             Password
           </label>
           <input
             id="pass"
+            name="password"
             type="password"
+            autoComplete="current-password"
+            spellCheck={false}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             disabled={loading}
             required
-            className="w-full px-3 py-2 border border-ash/40 bg-void rounded-none focus:outline-none focus:border-rust text-sm text-bone"
+            aria-invalid={error ? "true" : undefined}
+            aria-describedby={error ? "login-error" : undefined}
+            className="w-full px-3 py-2 border border-[var(--border-subtle)] bg-[var(--bg-secondary)] rounded-lg focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:border-[var(--accent)] text-sm text-[var(--text-primary)]"
           />
         </div>
 
         {error && (
-          <div className="border border-rust/30 bg-rust/5 p-3 text-xs text-rust font-mono">
+          <div
+            id="login-error"
+            role="alert"
+            aria-live="polite"
+            className="border border-[var(--accent-border)] bg-[var(--accent-subtle)] rounded-lg p-3 text-xs text-[var(--accent)] font-mono"
+          >
             {error}
           </div>
         )}
@@ -69,9 +79,9 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full btn-primary px-4 py-2 font-bold text-sm tracking-wide uppercase disabled:opacity-50"
+          className="w-full btn-primary px-4 py-2.5 font-bold text-sm tracking-wide uppercase disabled:opacity-50"
         >
-          {loading ? "Signing in..." : "Sign In"}
+          {loading ? "Signing in…" : "Sign In"}
         </button>
       </form>
     </div>

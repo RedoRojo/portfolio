@@ -8,13 +8,13 @@ export default function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" initial={false}>
       <motion.div
         key={pathname}
-        initial={{ opacity: 0, y: 15 }}
+        initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0, transitionEnd: { transform: "none" } }}
-        exit={{ opacity: 0, y: -15 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
+        exit={{ opacity: 0, y: -12 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
         className="w-full"
       >
         {children}

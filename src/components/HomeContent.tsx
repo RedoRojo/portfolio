@@ -33,7 +33,7 @@ export default function HomeContent({ featuredProjects }: HomeContentProps) {
   return (
     <div className="max-w-4xl mx-auto space-y-20">
       {/* Hero Section */}
-      <AnimatedSection delay={0.1} className="space-y-6 pt-10">
+      <AnimatedSection immediate className="space-y-6 pt-10">
         <div className="flex items-center gap-3">
           <span className="px-3 py-1 bg-[var(--accent-subtle)] text-[var(--accent)] border border-[var(--accent-border)] text-xs font-mono font-medium rounded-full">
             {t.home.roleBadge}

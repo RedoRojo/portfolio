@@ -8,6 +8,7 @@ interface AnimatedSectionProps {
   delay?: number;
   className?: string;
   id?: string;
+  immediate?: boolean;
 }
 
 export default function AnimatedSection({
@@ -15,7 +16,16 @@ export default function AnimatedSection({
   delay = 0,
   className = "",
   id,
+  immediate = false,
 }: AnimatedSectionProps) {
+  if (immediate) {
+    return (
+      <section id={id} className={className}>
+        {children}
+      </section>
+    );
+  }
+
   return (
     <motion.section
       id={id}

@@ -129,7 +129,7 @@ export default function ProjectDetailContent({ project }: ProjectDetailContentPr
                   language === "es" && post.summaryEs ? post.summaryEs : post.summary;
 
                 return (
-                  <Card key={post.id} className="space-y-2 hover:border-[var(--accent)] transition-all">
+                  <Card key={post.id} className="space-y-2 hover:border-[var(--accent)] transition-colors">
                     <div className="flex items-center justify-between gap-2 border-b border-dotted border-[var(--border-subtle)] pb-1.5">
                       <span className="font-mono text-xs text-[var(--text-muted)]">
                         {new Date(post.publishedAt).toLocaleDateString(locale, {

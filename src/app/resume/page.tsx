@@ -16,8 +16,8 @@ export default function ResumePage() {
     <div className="space-y-12 max-w-4xl mx-auto print:max-w-none print:px-0">
       {/* Print Action & Quick Info Header */}
       <AnimatedSection
-        delay={0.1}
-        className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 font-mono text-sm print-hidden bg-[var(--bg-card)] p-5 rounded-2xl border border-[var(--border-subtle)] shadow-sm"
+        immediate
+        className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 font-mono text-sm print:hidden bg-[var(--bg-card)] p-5 rounded-2xl border border-[var(--border-subtle)] shadow-sm"
       >
         <div className="flex items-center gap-3">
           <span className="px-3 py-1 bg-[var(--bg-secondary)] text-[var(--text-secondary)] border border-[var(--border-subtle)] text-xs font-mono font-medium rounded-md">
@@ -43,7 +43,7 @@ export default function ResumePage() {
       <article className="bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-8 sm:p-14 space-y-10 shadow-sm print:bg-white print:border-none print:shadow-none print:p-0">
         {/* Header */}
         <AnimatedSection
-          delay={0.2}
+          immediate
           className="text-center space-y-4 border-b border-[var(--border-subtle)] pb-8"
         >
           <h1 className="text-4xl sm:text-5xl font-sans font-bold tracking-tight text-[var(--text-primary)] print:text-black">

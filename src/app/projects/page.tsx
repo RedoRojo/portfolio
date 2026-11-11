@@ -1,8 +1,18 @@
+import type { Metadata } from "next";
 import prisma from "@/lib/db";
 import { Project } from "@prisma/client";
 import ProjectsListContent from "@/components/ProjectsListContent";
 
 export const revalidate = 0;
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Full-stack web applications, RESTful APIs, AI-native tools, and developer utilities built by Cristhian Victor Rojas Marquez.",
+  alternates: {
+    canonical: "/projects",
+  },
+};
 
 async function getAllProjects(): Promise<Project[]> {
   try {

@@ -42,18 +42,18 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-mono border border-[var(--border-subtle)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent)] transition-all cursor-pointer shadow-xs"
+      aria-pressed={isDark}
+      className="flex items-center justify-center gap-1.5 min-h-[34px] min-w-[34px] px-2.5 py-1.5 rounded-md text-xs font-mono border border-[var(--border-subtle)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent)] transition-colors cursor-pointer shadow-xs"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      title={isDark ? "Modo diurno (luz)" : "Visión de noche (oscuro)"}
     >
       {isDark ? (
         <>
-          <Sun className="w-3.5 h-3.5 text-[var(--accent)]" />
+          <Sun aria-hidden="true" className="w-3.5 h-3.5 text-[var(--accent)]" />
           <span className="hidden sm:inline">LUZ</span>
         </>
       ) : (
         <>
-          <Moon className="w-3.5 h-3.5 text-[var(--accent)]" />
+          <Moon aria-hidden="true" className="w-3.5 h-3.5 text-[var(--accent)]" />
           <span className="hidden sm:inline">NOCHE</span>
         </>
       )}

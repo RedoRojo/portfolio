@@ -18,10 +18,67 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const SITE_URL = "https://redoportfolio.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Cristhian Victor Rojas Marquez | Software Engineer",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Cristhian Victor Rojas Marquez | Software Engineer",
+    template: "%s | Cristhian Victor Rojas Marquez",
+  },
   description:
     "Systems Engineering Honors graduate & ICPC national finalist. Full-Stack & AI-Assisted Software Engineer specializing in React, Next.js, NestJS, FastAPI, and dynamic code analysis.",
+  keywords: [
+    "Cristhian Victor Rojas Marquez",
+    "Software Engineer",
+    "Full-Stack Developer",
+    "Next.js",
+    "TypeScript",
+    "NestJS",
+    "FastAPI",
+    "AI-Assisted Development",
+    "Bolivia",
+  ],
+  authors: [{ name: "Cristhian Victor Rojas Marquez", url: SITE_URL }],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: "Cristhian Victor Rojas Marquez — Portfolio",
+    title: "Cristhian Victor Rojas Marquez | Software Engineer",
+    description:
+      "Full-Stack & AI-Assisted Software Engineer. React, Next.js, NestJS, FastAPI, PostgreSQL & dynamic code analysis.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Cristhian Victor Rojas Marquez | Software Engineer",
+    description:
+      "Full-Stack & AI-Assisted Software Engineer. React, Next.js, NestJS, FastAPI, PostgreSQL & dynamic code analysis.",
+  },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Cristhian Victor Rojas Marquez",
+  jobTitle: "Software Engineer",
+  url: SITE_URL,
+  email: "mailto:cristhiabnvictorrm@gmail.com",
+  sameAs: [
+    "https://github.com/RedoRojo",
+    "https://linkedin.com/in/rojasredo",
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: 'Universidad Católica Boliviana "San Pablo"',
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Cochabamba",
+    addressCountry: "BO",
+  },
 };
 
 export default function RootLayout({
@@ -53,15 +110,29 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
       </head>
       <body className="min-h-full flex flex-col bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-200">
+        <a
+          href="#main-content"
+          className="skip-link visually-hidden print:hidden"
+        >
+          Skip to main content
+        </a>
         <LanguageProvider>
           <HeaderNav />
 
-          <main className="flex-1 w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-            <PageTransition>
-              {children}
-            </PageTransition>
+          <main
+            id="main-content"
+            tabIndex={-1}
+            className="flex-1 w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 focus:outline-none"
+          >
+            <PageTransition>{children}</PageTransition>
           </main>
 
           <FooterContent />

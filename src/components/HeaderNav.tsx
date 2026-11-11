@@ -7,7 +7,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import LanguageToggle from "@/components/LanguageToggle";
 
 export default function HeaderNav() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const pathname = usePathname();
 
   const navItems = [
@@ -18,13 +18,14 @@ export default function HeaderNav() {
   ];
 
   return (
-    <header className="border-b border-[var(--border-subtle)] sticky top-0 bg-[var(--bg-primary)]/85 backdrop-blur-md z-50 transition-colors duration-200">
+    <header className="border-b border-[var(--border-subtle)] sticky top-0 bg-[var(--bg-primary)]/85 backdrop-blur-md z-50 transition-colors duration-200 print:hidden">
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div className="flex items-center gap-3">
           <span
-            className="w-2 h-2 rounded-full bg-[var(--accent-green)] inline-block animate-pulse"
-            title={t.header.status}
+            aria-hidden="true"
+            className="w-2 h-2 rounded-full bg-[var(--accent-green)] inline-block animate-pulse motion-reduce:animate-none"
           />
+          <span className="visually-hidden">{t.header.status}</span>
           <div>
             <Link
               href="/"
@@ -39,7 +40,10 @@ export default function HeaderNav() {
         </div>
 
         <div className="flex items-center gap-4 sm:gap-5 flex-wrap">
-          <nav className="flex items-center flex-wrap gap-3 sm:gap-4 font-mono text-sm">
+          <nav
+            aria-label={language === "es" ? "Principal" : "Primary"}
+            className="flex items-center flex-wrap gap-3 sm:gap-4 font-mono text-sm"
+          >
             {navItems.map((item) => {
               const isActive =
                 item.href === "/"
@@ -50,7 +54,8 @@ export default function HeaderNav() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`font-medium transition-colors ${
+                  aria-current={isActive ? "page" : undefined}
+                  className={`py-1 font-medium transition-colors ${
                     isActive
                       ? "text-[var(--accent)] font-semibold"
                       : "text-[var(--text-secondary)] hover:text-[var(--accent)]"

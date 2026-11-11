@@ -68,7 +68,7 @@ export default function BlogListContent({ posts }: BlogListContentProps) {
               <Card
                 key={post.id}
                 delay={0.1 * index}
-                className="hover:border-[var(--accent)] transition-all space-y-3"
+                className="hover:border-[var(--accent)] transition-colors space-y-3"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-2">
                   <div className="flex flex-wrap items-center gap-2">
