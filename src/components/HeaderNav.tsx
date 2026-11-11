@@ -18,31 +18,26 @@ export default function HeaderNav() {
   ];
 
   return (
-    <header className="border-b border-[var(--border-subtle)] sticky top-0 bg-[var(--bg-primary)]/85 backdrop-blur-md z-50 transition-colors duration-200 print:hidden">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div className="flex items-center gap-3">
-          <span
-            aria-hidden="true"
-            className="w-2 h-2 rounded-full bg-[var(--accent-green)] inline-block animate-pulse motion-reduce:animate-none"
-          />
+    <header className="border-b-2 border-[var(--border-strong)] sticky top-0 bg-[var(--bg-primary)]/95 backdrop-blur-sm z-50 transition-colors duration-200 print:hidden">
+      <div className="site-wrap py-3.5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div className="min-w-0">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2.5 font-serif font-bold text-lg sm:text-xl tracking-tight text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors"
+          >
+            <span
+              aria-hidden="true"
+              className="w-3 h-3 bg-[var(--accent)] inline-block shrink-0"
+            />
+            <span>{t.header.name}</span>
+          </Link>
           <span className="visually-hidden">{t.header.status}</span>
-          <div>
-            <Link
-              href="/"
-              className="font-sans font-bold text-base tracking-tight text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors"
-            >
-              {t.header.name}
-            </Link>
-            <p className="font-mono text-xs text-[var(--text-secondary)] mt-0.5 flex items-center gap-2">
-              <span>{t.header.role}</span>
-            </p>
-          </div>
         </div>
 
-        <div className="flex items-center gap-4 sm:gap-5 flex-wrap">
+        <div className="w-full sm:w-auto flex items-center justify-between sm:justify-end gap-5 flex-wrap">
           <nav
             aria-label={language === "es" ? "Principal" : "Primary"}
-            className="flex items-center flex-wrap gap-3 sm:gap-4 font-mono text-sm"
+            className="flex items-center flex-wrap gap-5 font-mono text-xs uppercase tracking-wider"
           >
             {navItems.map((item) => {
               const isActive =
@@ -55,19 +50,25 @@ export default function HeaderNav() {
                   key={item.href}
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`py-1 font-medium transition-colors ${
+                  className={`py-1.5 min-h-[36px] inline-flex items-center gap-1.5 border-b-2 transition-colors ${
                     isActive
-                      ? "text-[var(--accent)] font-semibold"
-                      : "text-[var(--text-secondary)] hover:text-[var(--accent)]"
+                      ? "border-[var(--accent)] text-[var(--text-primary)] font-bold"
+                      : "border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-control)]"
                   }`}
                 >
-                  {item.label}
+                  {isActive && (
+                    <span
+                      aria-hidden="true"
+                      className="w-1.5 h-1.5 bg-[var(--accent)] inline-block shrink-0"
+                    />
+                  )}
+                  <span>{item.label}</span>
                 </Link>
               );
             })}
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <LanguageToggle />
             <ThemeToggle />
           </div>

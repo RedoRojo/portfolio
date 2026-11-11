@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { Post } from "@prisma/client";
 import Markdown from "@/components/Markdown";
-import Card from "@/components/Card";
-import Badge from "@/components/Badge";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -37,70 +35,60 @@ export default function BlogDetailContent({ post }: BlogDetailContentProps) {
       : post.project.title);
 
   return (
-    <div className="space-y-8 max-w-3xl mx-auto">
-      {/* Back link */}
-      <div className="font-mono text-xs">
+    <div className="site-wrap py-14 md:py-20 space-y-12 max-w-4xl">
+      <div className="font-mono text-xs uppercase tracking-wider">
         <Link href="/blog" className="text-[var(--accent)] link-underline">
           {t.blogPage.backLink}
         </Link>
       </div>
 
-      {/* Post Header */}
-      <AnimatedSection delay={0.1}>
-        <Card accent>
-          <div className="space-y-4">
-            <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="black">
-                {t.blogPage.publishedOn}{" "}
-                {new Date(post.publishedAt).toLocaleDateString(locale, {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </Badge>
-              {post.project && (
-                <Link
-                  href={`/projects/${post.project.slug || post.project.id}`}
-                  className="inline-flex items-center gap-1 px-2.5 py-0.5 text-xs font-mono bg-[var(--accent-subtle)] text-[var(--accent)] border border-[var(--accent-border)] rounded-full hover:underline"
-                >
-                  <span>📌 {language === "es" ? "Proyecto:" : "Project:"}</span>
-                  <span className="font-semibold">{projectTitle}</span>
-                </Link>
-              )}
-            </div>
+      <AnimatedSection
+        immediate
+        className="space-y-6 border-b-2 border-[var(--border-strong)] pb-10"
+      >
+        <div className="flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-wider text-[var(--text-muted)]">
+          <span>
+            {t.blogPage.publishedOn}{" "}
+            {new Date(post.publishedAt).toLocaleDateString(locale, {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </span>
+          {post.project && (
+            <>
+              <span aria-hidden="true">/</span>
+              <Link
+                href={`/projects/${post.project.slug || post.project.id}`}
+                className="text-[var(--accent)] font-bold hover:underline"
+              >
+                {projectTitle}
+              </Link>
+            </>
+          )}
+        </div>
 
-            <h1 className="text-2xl sm:text-3xl font-sans font-bold tracking-tight leading-snug text-[var(--text-primary)]">
-              {displayTitle}
-            </h1>
-            <p className="text-sm font-sans text-[var(--text-secondary)] border-l-2 border-[var(--accent)] pl-4 leading-relaxed italic">
-              {displaySummary}
-            </p>
+        <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight leading-[1.06] text-[var(--text-primary)]">
+          {displayTitle}
+        </h1>
 
-            {post.tags && (
-              <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--border-subtle)]">
-                {post.tags.split(",").map((tag) => (
-                  <span
-                    key={tag.trim()}
-                    className="font-mono text-[11px] px-2 py-0.5 bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-[var(--text-muted)] rounded"
-                  >
-                    #{tag.trim()}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-        </Card>
+        <p className="font-serif text-lg sm:text-xl text-[var(--text-secondary)] border-l-4 border-[var(--accent)] pl-5 leading-relaxed max-w-[54ch]">
+          {displaySummary}
+        </p>
+
+        {post.tags && (
+          <p className="font-mono text-xs uppercase tracking-wide text-[var(--text-muted)]">
+            {post.tags
+              .split(",")
+              .map((tag) => `#${tag.trim()}`)
+              .join(" · ")}
+          </p>
+        )}
       </AnimatedSection>
 
-      {/* Post Content */}
-      <AnimatedSection delay={0.2}>
-        <Card>
-          <div className="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-wider border-b border-[var(--border-subtle)] pb-2 mb-4">
-            {language === "es" ? "Artículo Técnico" : "Technical Article"}
-          </div>
-          <Markdown content={displayContent} />
-        </Card>
-      </AnimatedSection>
+      <article className="pt-2">
+        <Markdown content={displayContent} />
+      </article>
     </div>
   );
 }

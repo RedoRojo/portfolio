@@ -3,59 +3,118 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  /* Admin Light Mode: crisp white, stark black ink & vivid crimson red */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f4f4f5;
-  --bg-card: #ffffff;
-  --text-primary: #09090b;
-  --text-secondary: #52525b;
-  --text-muted: #71717a;
-  --accent: #dc2626; /* Intense admin crimson red */
-  --accent-hover: #b91c1c;
-  --accent-subtle: #fef2f2;
-  --accent-border: #fecaca;
-  --accent-green: #15803d;
-  --accent-green-bg: #f0fdf4;
-  --accent-green-border: #bbf7d0;
-  --border-subtle: #e4e4e7;
-  --border-hover: #18181b;
+  /* Papel de archivo & hormigón brutalista (Modo claro) */
+  --bg-primary: #f0ebe0;
+  --bg-secondary: #e3dccb;
+  --bg-card: #f0ebe0;
+  --text-primary: #121110;
+  --text-secondary: #3b3732;
+  --text-muted: #59534b;
 
-  /* Legacy aliases for backward compatibility */
+  /* Rojo constructivista (WCAG AA >= 4.7:1 en papel/hormigón y >= 5.9:1 con texto crema) */
+  --accent: #b81d18;
+  --accent-hover: #8f1410;
+  --on-accent: #f7f4ec;
+  --accent-subtle: #eedad6;
+  --accent-border: #9f2d28;
+  --accent-green: #166534;
+  --accent-green-bg: #e3ede6;
+  --accent-green-border: #3a7750;
+
+  --border-subtle: #cfc7b7;
+  --border-control: #7d7569;
+  --border-hover: #121110;
+  --border-strong: #121110;
+
+  /* Geometría constructivista reactiva al esquema */
+  --geo-monolith: #141210;
+  --geo-plane: #dfd7c5;
+  --geo-crimson: #b81d18;
+  --geo-line: #121110;
+
+  /* Banda monolítica oscura fija (Footer y sección de trayectoria) */
+  --band-bg: #141210;
+  --band-surface: #201d1a;
+  --band-ink: #f0ebe0;
+  --band-muted: #aba396;
+  --band-accent: #f04c42;
+  --band-accent-hover: #ff6e65;
+  --band-border: rgba(240, 235, 224, 0.18);
+
+  /* Familias tipográficas */
+  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans: var(--font-serif);
+  --font-display: var(--font-serif);
+
+  /* Aliases heredados para vistas administrativas */
   --color-bone: var(--text-primary);
   --color-rust: var(--accent);
   --color-ash: var(--text-secondary);
   --color-void: var(--bg-secondary);
   --color-crimson: var(--accent);
 
-  --font-sans: var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --font-display: var(--font-sans);
+  color-scheme: light dark;
+  accent-color: var(--accent);
+  --scrollbar-track: #e3dccb;
+  --scrollbar-thumb: #6f685d;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+:root:has(> head > meta[name="color-scheme"][content="dark"]) {
+  color-scheme: dark;
+}
+
+:root:has(> head > meta[name="color-scheme"][content="light"]) {
+  color-scheme: light;
 }
 
 .dark {
-  /* Ultra-Dark Night Mode: true pitch black background & vibrant electric accents */
-  --bg-primary: #000000;
-  --bg-secondary: #0c0d0f;
-  --bg-card: #090a0c;
-  --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  --accent: #ff2a3f; /* Luminous electric crimson */
-  --accent-hover: #ff5c6d;
-  --accent-subtle: #24070a;
-  --accent-border: #4d0e14;
-  --accent-green: #10b981; /* Luminous emerald */
-  --accent-green-bg: #062316;
-  --accent-green-border: #0e4e32;
-  --border-subtle: #1c1c22;
-  --border-hover: #2e2e38;
+  /* Basalto oscuro & bermellón constructivista (Modo oscuro) */
+  --bg-primary: #11100f;
+  --bg-secondary: #1b1916;
+  --bg-card: #171513;
+  --text-primary: #f0ebe0;
+  --text-secondary: #bcb4a6;
+  --text-muted: #968f83;
+  --accent: #ee4b42;
+  --accent-hover: #ff6e66;
+  --on-accent: #11100f;
+  --accent-subtle: #2b1715;
+  --accent-border: #aa3832;
+  --accent-green: #38b279;
+  --accent-green-bg: #12271d;
+  --accent-green-border: #256b49;
 
-  /* Legacy aliases for backward compatibility */
+  --border-subtle: #2c2924;
+  --border-control: #6f685d;
+  --border-hover: #f0ebe0;
+  --border-strong: #e3dccb;
+
+  --geo-monolith: #25221e;
+  --geo-plane: #1b1815;
+  --geo-crimson: #ee4b42;
+  --geo-line: #f0ebe0;
+
+  --band-bg: #1a1815;
+  --band-surface: #23201c;
+  --band-ink: #f0ebe0;
+  --band-muted: #a8a092;
+  --band-accent: #f04c42;
+  --band-accent-hover: #ff6e65;
+  --band-border: rgba(240, 235, 224, 0.16);
+
   --color-bone: var(--text-primary);
   --color-rust: var(--accent);
   --color-ash: var(--text-secondary);
   --color-void: var(--bg-secondary);
   --color-crimson: var(--accent);
+
+  color-scheme: dark;
+  accent-color: var(--accent);
+  --scrollbar-track: #1b1916;
+  --scrollbar-thumb: #6f685d;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
 @theme {
@@ -79,12 +138,14 @@
   --color-crimson: var(--color-crimson);
 
   --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
   --font-display: var(--font-display);
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -96,13 +157,21 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-sans);
-  line-height: 1.6;
+  font-family: var(--font-serif);
+  line-height: 1.65;
+  text-align: start;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
 h2 {
   text-wrap: balance;
+}
+
+p,
+blockquote {
+  text-wrap: pretty;
 }
 
 a,
@@ -112,13 +181,18 @@ button {
 
 :target,
 :focus {
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: 5rem;
   scroll-margin-bottom: 3rem;
 }
 
 :where(a:any-link, button, input, textarea, select, summary):focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
+}
+
+.band-ink :where(a:any-link, button, input, textarea, select, summary):focus-visible {
+  outline: 2px solid var(--band-accent);
+  outline-offset: 3px;
 }
 
 .visually-hidden:where(:not(:focus-within, :active)) {
@@ -138,81 +212,135 @@ button {
   top: 0.75rem;
   left: 0.75rem;
   z-index: 100;
-  padding: 0.625rem 1rem;
+  padding: 0.65rem 1rem;
   background-color: var(--accent);
-  color: #ffffff;
+  color: var(--on-accent);
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 600;
-  border-radius: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 ::selection {
   background-color: var(--accent);
-  color: #ffffff;
+  color: var(--on-accent);
 }
 
-/* Minimalist Button styles */
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+  }
+}
+
+/* ---------- Contenedores arquitectónicos ---------- */
+.site-wrap {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+/* Mantener alias editorial-wrap por compatibilidad con subrutas */
+.editorial-wrap {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+/* Banda monolítica oscura: declara esquema, fondo, color heredado y acento */
+.band-ink {
+  color-scheme: dark;
+  background-color: var(--band-bg);
+  color: var(--band-ink);
+  accent-color: var(--band-accent);
+}
+
+/* Botones brutalistas (0px de radio, bordes netos de alto contraste) */
 .btn-primary {
-  background-color: var(--text-primary);
-  color: var(--bg-primary);
-  border: 1px solid var(--text-primary);
-  border-radius: 0.375rem;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-block-size: 2.85rem;
+  background-color: var(--accent);
+  color: var(--on-accent);
+  border: 2px solid var(--accent);
+  border-radius: 0;
+  padding: 0.6rem 1.4rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
   cursor: pointer;
-  font-weight: 500;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
 
-.btn-primary:hover {
-  background-color: var(--accent);
-  border-color: var(--accent);
-  color: #ffffff;
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--text-primary);
+  border-color: var(--text-primary);
+  color: var(--bg-primary);
 }
 
 .btn-secondary {
-  background-color: var(--bg-card);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-block-size: 2.85rem;
+  background-color: transparent;
   color: var(--text-primary);
-  border: 1px solid var(--border-subtle);
-  border-radius: 0.375rem;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  border: 2px solid var(--text-primary);
+  border-radius: 0;
+  padding: 0.6rem 1.4rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
   cursor: pointer;
-  font-weight: 500;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
 
-.btn-secondary:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background-color: var(--bg-secondary);
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--text-primary);
+  border-color: var(--text-primary);
+  color: var(--bg-primary);
 }
 
-/* Accent border bar */
+/* Barra de acento vertical (usada en citas/notas técnicas y admin) */
 .accent-bar {
-  border-left: 3px solid var(--accent);
+  border-left: 4px solid var(--accent);
 }
 
-/* Minimalist Link styles */
+/* Subrayado geométrico neto */
 .link-underline {
   position: relative;
   text-decoration: none;
   color: var(--accent);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .link-underline::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   transform: scaleX(0);
-  height: 1px;
+  height: 2px;
   bottom: -2px;
   left: 0;
-  background-color: var(--accent);
+  background-color: currentColor;
   transform-origin: bottom right;
-  transition: transform 0.3s ease-out;
+  transition: transform 0.22s ease-out;
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -221,16 +349,27 @@ button {
   }
 }
 
-.link-underline:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+/* Modo de alto contraste / Forced Colors */
+@media (forced-colors: active) {
+  .btn-primary,
+  .btn-secondary {
+    border: 2px solid ButtonText;
+  }
+  .band-ink {
+    border-top: 2px solid CanvasText;
+    border-bottom: 2px solid CanvasText;
+  }
+  .constructivist-panel {
+    border: 1px solid CanvasText;
+  }
 }
 
-/* Print styles */
+/* Impresión ATS limpia */
 @media print {
   body {
     background-color: #ffffff !important;
     color: #000000 !important;
+    font-family: Georgia, "Times New Roman", serif !important;
   }
 
   main section,

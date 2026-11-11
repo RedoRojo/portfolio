@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { Post } from "@prisma/client";
-import Card from "@/components/Card";
-import Badge from "@/components/Badge";
 import Button from "@/components/Button";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useLanguage } from "@/context/LanguageContext";
@@ -21,39 +19,42 @@ interface BlogListContentProps {
 
 export default function BlogListContent({ posts }: BlogListContentProps) {
   const { language, t } = useLanguage();
-
   const locale = language === "es" ? "es-ES" : "en-US";
 
   return (
-    <div className="space-y-10 max-w-3xl mx-auto">
-      {/* Page Header */}
-      <AnimatedSection delay={0.1} className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Badge variant="black">{t.blogPage.badge}</Badge>
-        </div>
-        <h1 className="text-3xl md:text-4xl font-sans font-bold tracking-tight text-[var(--text-primary)]">
+    <div className="site-wrap py-16 md:py-24 space-y-14 max-w-5xl">
+      <AnimatedSection
+        immediate
+        className="space-y-4 border-b-2 border-[var(--border-strong)] pb-10"
+      >
+        <span className="inline-flex items-center gap-2 font-mono text-xs font-bold text-[var(--accent)] tracking-widest uppercase">
+          <span
+            aria-hidden="true"
+            className="w-2.5 h-2.5 bg-[var(--accent)] inline-block"
+          />
+          {t.blogPage.badge}
+        </span>
+        <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.02]">
           {t.blogPage.title}
         </h1>
-        <p className="text-base font-sans text-[var(--text-secondary)] leading-relaxed">
+        <p className="font-serif text-lg sm:text-xl text-[var(--text-secondary)] leading-relaxed max-w-[54ch]">
           {t.blogPage.subtitle}
         </p>
       </AnimatedSection>
 
-      {/* Posts List */}
       {posts.length === 0 ? (
-        <AnimatedSection delay={0.2}>
-          <Card className="p-12 text-center">
-            <p className="font-mono text-sm text-[var(--text-muted)]">
-              {t.blogPage.empty}
-            </p>
-            <div className="mt-4">
-              <Button href="/admin">{t.blogPage.adminButton}</Button>
-            </div>
-          </Card>
-        </AnimatedSection>
+        <div className="py-12 space-y-5">
+          <p className="font-serif italic text-[var(--text-muted)]">
+            {t.blogPage.empty}
+          </p>
+          <Button href="/admin">{t.blogPage.adminButton}</Button>
+        </div>
       ) : (
-        <div className="space-y-4">
-          {posts.map((post, index) => {
+        <ul
+          role="list"
+          className="divide-y-2 divide-[var(--border-strong)] border-b-2 border-[var(--border-strong)]"
+        >
+          {posts.map((post) => {
             const displayTitle =
               language === "es" && post.titleEs ? post.titleEs : post.title;
             const displaySummary =
@@ -65,58 +66,54 @@ export default function BlogListContent({ posts }: BlogListContentProps) {
                 : post.project.title);
 
             return (
-              <Card
+              <li
                 key={post.id}
-                delay={0.1 * index}
-                className="hover:border-[var(--accent)] transition-colors space-y-3"
+                className="py-9 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start"
               >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-2">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Badge variant="black">
-                      {new Date(post.publishedAt).toLocaleDateString(locale, {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                      })}
-                    </Badge>
-                    {post.project && (
-                      <Link
-                        href={`/projects/${post.project.slug || post.project.id}`}
-                        className="font-mono text-xs px-2 py-0.5 bg-[var(--accent-subtle)] text-[var(--accent)] border border-[var(--accent-border)] rounded-full hover:underline"
-                      >
-                        📌 {projectTitle}
-                      </Link>
-                    )}
-                  </div>
+                <div className="md:col-span-3 border-l-4 border-[var(--accent)] pl-4 space-y-1.5 font-mono text-xs uppercase tracking-wider text-[var(--text-muted)]">
+                  <span className="block font-bold text-[var(--text-primary)]">
+                    {new Date(post.publishedAt).toLocaleDateString(locale, {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </span>
+                  {post.project && (
+                    <Link
+                      href={`/projects/${post.project.slug || post.project.id}`}
+                      className="inline-block text-[var(--accent)] hover:underline"
+                    >
+                      {projectTitle}
+                    </Link>
+                  )}
+                </div>
+
+                <div className="md:col-span-7 space-y-2">
+                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[var(--text-primary)] leading-snug">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="hover:text-[var(--accent)] transition-colors"
+                    >
+                      {displayTitle}
+                    </Link>
+                  </h2>
+                  <p className="font-serif text-base text-[var(--text-secondary)] leading-relaxed max-w-[54ch]">
+                    {displaySummary}
+                  </p>
+                </div>
+
+                <div className="md:col-span-2 md:text-right font-mono text-xs uppercase tracking-wider">
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="font-mono text-xs text-[var(--accent)] font-medium hover:underline self-start sm:self-auto"
+                    className="inline-flex items-center justify-center min-h-[36px] px-3.5 border-2 border-[var(--text-primary)] font-bold text-[var(--text-primary)] hover:bg-[var(--accent)] hover:border-[var(--accent)] hover:text-[var(--on-accent)] transition-colors"
                   >
                     {t.blogPage.readArticle}
                   </Link>
                 </div>
-                <h2 className="font-sans font-bold text-lg text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors leading-snug">
-                  <Link href={`/blog/${post.slug}`}>{displayTitle}</Link>
-                </h2>
-                <p className="text-sm font-sans text-[var(--text-secondary)] leading-relaxed">
-                  {displaySummary}
-                </p>
-                {post.tags && (
-                  <div className="flex flex-wrap gap-1 pt-1">
-                    {post.tags.split(",").map((tag) => (
-                      <span
-                        key={tag.trim()}
-                        className="font-mono text-[10px] px-1.5 py-0.5 bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-[var(--text-muted)] rounded"
-                      >
-                        #{tag.trim()}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </Card>
+              </li>
             );
           })}
-        </div>
+        </ul>
       )}
     </div>
   );

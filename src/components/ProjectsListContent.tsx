@@ -2,10 +2,7 @@
 
 import { Project } from "@prisma/client";
 import Link from "next/link";
-import Card from "@/components/Card";
-import Tag from "@/components/Tag";
 import Button from "@/components/Button";
-import Badge from "@/components/Badge";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -13,114 +10,131 @@ interface ProjectsListContentProps {
   projects: Project[];
 }
 
-export default function ProjectsListContent({ projects }: ProjectsListContentProps) {
+export default function ProjectsListContent({
+  projects,
+}: ProjectsListContentProps) {
   const { language, t } = useLanguage();
 
   return (
-    <div className="max-w-5xl mx-auto space-y-10">
-      {/* Page Header */}
-      <AnimatedSection delay={0.1} className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Badge variant="black">{t.projectsPage.badge}</Badge>
-        </div>
-        <h1 className="text-3xl md:text-4xl font-sans font-bold tracking-tight text-[var(--text-primary)]">
+    <div className="site-wrap py-16 md:py-24 space-y-14">
+      <AnimatedSection
+        immediate
+        className="space-y-4 border-b-2 border-[var(--border-strong)] pb-10 max-w-[48rem]"
+      >
+        <span className="inline-flex items-center gap-2 font-mono text-xs font-bold text-[var(--accent)] tracking-widest uppercase">
+          <span
+            aria-hidden="true"
+            className="w-2.5 h-2.5 bg-[var(--accent)] inline-block"
+          />
+          {t.projectsPage.badge}
+        </span>
+        <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.02]">
           {t.projectsPage.title}
         </h1>
-        <p className="text-base font-sans text-[var(--text-secondary)] max-w-2xl leading-relaxed">
+        <p className="font-serif text-lg sm:text-xl text-[var(--text-secondary)] leading-relaxed">
           {t.projectsPage.subtitle}
         </p>
       </AnimatedSection>
 
-      {/* Projects Grid */}
       {projects.length === 0 ? (
-        <AnimatedSection delay={0.2}>
-          <Card className="p-12 text-center">
-            <p className="font-mono text-sm text-[var(--text-muted)]">
-              {t.projectsPage.empty}
-            </p>
-            <div className="mt-4">
-              <Button href="/admin">{t.projectsPage.adminButton}</Button>
-            </div>
-          </Card>
-        </AnimatedSection>
+        <div className="py-12 space-y-5">
+          <p className="font-serif italic text-[var(--text-muted)]">
+            {t.projectsPage.empty}
+          </p>
+          <Button href="/admin">{t.projectsPage.adminButton}</Button>
+        </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <ul
+          role="list"
+          className="divide-y-2 divide-[var(--border-strong)] border-b-2 border-[var(--border-strong)]"
+        >
           {projects.map((project, index) => {
             const displayTitle =
-              language === "es" && project.titleEs ? project.titleEs : project.title;
+              language === "es" && project.titleEs
+                ? project.titleEs
+                : project.title;
             const displayDescription =
               language === "es" && project.descriptionEs
                 ? project.descriptionEs
                 : project.description;
 
             return (
-              <Card
+              <li
                 key={project.id}
-                delay={0.1 * index}
-                className="flex flex-col justify-between hover:border-[var(--accent)] transition-colors"
+                className="py-10 grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 items-start"
               >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-wider">
-                      {project.status === "COMPLETED"
-                        ? language === "es"
-                          ? "Completado"
-                          : "Completed"
-                        : language === "es"
-                        ? "En Progreso"
-                        : "In Progress"}
-                    </span>
-                    {project.featured && (
-                      <span className="font-mono text-[10px] text-[var(--accent)] font-semibold uppercase tracking-wider">
-                        ★ {language === "es" ? "Destacado" : "Featured"}
-                      </span>
-                    )}
-                  </div>
-                  <h2 className="font-sans font-bold text-lg text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors">
-                    <Link href={`/projects/${project.slug || project.id}`}>{displayTitle}</Link>
+                <div className="md:col-span-2 border-l-4 border-[var(--accent)] pl-4 space-y-1">
+                  <span className="font-serif font-bold text-4xl leading-none text-[var(--text-primary)] tabular-nums block">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--text-muted)] block">
+                    {project.status === "COMPLETED"
+                      ? language === "es"
+                        ? "Completado"
+                        : "Completed"
+                      : language === "es"
+                      ? "En curso"
+                      : "In progress"}
+                  </span>
+                </div>
+
+                <div className="md:col-span-7 space-y-3">
+                  <h2 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-primary)]">
+                    <Link
+                      href={`/projects/${project.slug || project.id}`}
+                      className="hover:text-[var(--accent)] transition-colors"
+                    >
+                      {displayTitle}
+                    </Link>
                   </h2>
-                  <p className="text-sm font-sans leading-relaxed text-[var(--text-secondary)] min-h-[4rem]">
+                  <p className="font-serif text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed max-w-[54ch]">
                     {displayDescription}
                   </p>
                   {project.techStack && (
-                    <div className="space-y-1.5">
-                      <span className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider block">
-                        {t.projectsPage.techStackLabel}
-                      </span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {project.techStack.split(",").map((tech) => (
-                          <Tag key={tech.trim()}>{tech.trim()}</Tag>
-                        ))}
-                      </div>
-                    </div>
+                    <p className="font-mono text-xs uppercase tracking-wide text-[var(--text-muted)] pt-1">
+                      {project.techStack
+                        .split(",")
+                        .map((tech) => tech.trim())
+                        .filter(Boolean)
+                        .join(" · ")}
+                    </p>
                   )}
                 </div>
-                <div className="flex gap-4 pt-4 mt-6 border-t border-[var(--border-subtle)] font-mono text-xs">
-                  {project.repoUrl && (
-                    <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[var(--accent)] font-medium hover:underline"
-                    >
-                      {t.projectsPage.sourceCode}
-                    </a>
-                  )}
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:underline"
-                    >
-                      {t.projectsPage.liveDemo}
-                    </a>
-                  )}
+
+                <div className="md:col-span-3 flex flex-wrap md:flex-col md:items-end gap-3 pt-2 md:pt-0">
+                  <Link
+                    href={`/projects/${project.slug || project.id}`}
+                    className="inline-flex items-center justify-center min-h-[38px] px-4 border-2 border-[var(--text-primary)] font-mono text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] hover:bg-[var(--accent)] hover:border-[var(--accent)] hover:text-[var(--on-accent)] transition-colors"
+                  >
+                    {t.projectsPage.readMore}
+                  </Link>
+                  <div className="flex items-center gap-4 font-mono text-xs uppercase tracking-wider">
+                    {project.repoUrl && (
+                      <a
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors py-1"
+                      >
+                        {t.projectsPage.sourceCode}
+                      </a>
+                    )}
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[var(--accent)] hover:underline transition-colors py-1"
+                      >
+                        {t.projectsPage.liveDemo}
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </Card>
+              </li>
             );
           })}
-        </div>
+        </ul>
       )}
     </div>
   );
