@@ -20,7 +20,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Cristhian Victor Rojas Marquez | Software Engineer",
-  description: "Software engineer focused on web systems and quality assurance.",
+  description:
+    "Systems Engineering Honors graduate & ICPC national finalist. Full-Stack & AI-Assisted Software Engineer specializing in React, Next.js, NestJS, FastAPI, and dynamic code analysis.",
 };
 
 export default function RootLayout({

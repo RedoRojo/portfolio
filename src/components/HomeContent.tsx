@@ -18,15 +18,15 @@ export default function HomeContent({ featuredProjects }: HomeContentProps) {
   const skillCategories = [
     {
       category: t.home.skills.frontendCategory,
-      skills: ["TypeScript", "React", "Next.js", "Tailwind CSS", "Framer Motion", "JavaScript"],
+      skills: ["TypeScript", "JavaScript (ES6+)", "Python", "C++", "Java", "SQL", "React", "Next.js", "Tailwind CSS"],
     },
     {
       category: t.home.skills.backendCategory,
-      skills: ["Python", "Java", "Node.js", "PostgreSQL", "Prisma ORM", "Docker"],
+      skills: ["NestJS", "FastAPI", "Node.js", "PostgreSQL", "SQLite", "SQLAlchemy", "TypeORM", "Prisma ORM", "RESTful APIs"],
     },
     {
       category: t.home.skills.qaCategory,
-      skills: ["Test Automation", "CI/CD", "Linux", "System Architecture", "Quality Assurance"],
+      skills: ["Google GenAI SDK (Gemini)", "Claude Code", "Cursor", "Unit & Dynamic Testing", "OOP", "Data Structures & Algorithms", "Docker", "Linux", "Git"],
     },
   ];
 
@@ -113,8 +113,8 @@ export default function HomeContent({ featuredProjects }: HomeContentProps) {
                 {t.home.recruiter.contactLanguages}
               </p>
               <a
-                href="mailto:cristhian.rojas@example.com"
-                className="text-[var(--accent)] hover:underline text-xs"
+                href="mailto:cristhiabnvictorrm@gmail.com"
+                className="text-[var(--accent)] hover:underline text-xs break-all"
               >
                 {t.home.recruiter.contactAction}
               </a>

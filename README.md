@@ -1,6 +1,6 @@
 # Cristhian Victor Rojas Marquez - Software Engineer Portfolio & Blog
 
-This repository contains the source code for the personal website, professional portfolio, and engineering blog of **Cristhian Victor Rojas Marquez**, a Full-Stack Software Engineer specializing in web applications, automated software testing/analysis, and neurotechnology applications.
+This repository contains the source code for the personal website, professional portfolio, and engineering blog of **Cristhian Victor Rojas Marquez**, a Full-Stack Software Engineer (Systems Engineering Honors graduate & ICPC national finalist) specializing in full-stack web applications, RESTful APIs, AI-assisted development workflows, and automated dynamic code analysis.
 
 The site is built with **Next.js 16**, **Prisma ORM**, and **PostgreSQL**, styled with a premium high-contrast brutalist aesthetic (clean typography, crisp borders, and bold accent colors).
 

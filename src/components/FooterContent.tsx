@@ -8,21 +8,32 @@ export default function FooterContent() {
   return (
     <footer className="border-t border-[var(--border-subtle)] bg-[var(--bg-card)] mt-16 py-10 text-sm font-sans text-[var(--text-secondary)] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div className="flex items-center gap-2">
-          <span className="font-medium text-[var(--text-primary)]">Cristhian Victor Rojas Marquez</span>
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="font-medium text-[var(--text-primary)]">
+            Cristhian Victor Rojas Marquez
+          </span>
           <span className="text-[var(--border-subtle)]">|</span>
           <span>{t.footer.role}</span>
         </div>
-        <div className="flex items-center gap-4 text-[var(--text-secondary)]">
+        <div className="flex flex-wrap items-center gap-4 text-[var(--text-secondary)]">
           <a
-            href="mailto:cristhian.rojas@example.com"
+            href="mailto:cristhiabnvictorrm@gmail.com"
             className="hover:text-[var(--accent)] transition-colors"
           >
             {t.footer.email}
           </a>
           <span className="text-[var(--border-subtle)]">•</span>
           <a
-            href="https://github.com/cristhian-rojas"
+            href="https://linkedin.com/in/rojasredo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--accent)] transition-colors"
+          >
+            {t.footer.linkedin}
+          </a>
+          <span className="text-[var(--border-subtle)]">•</span>
+          <a
+            href="https://github.com/RedoRojo"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[var(--accent)] transition-colors"
