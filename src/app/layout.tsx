@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import PageTransition from "@/components/PageTransition";
 import HeaderNav from "@/components/HeaderNav";
 import FooterContent from "@/components/FooterContent";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
+  subsets: ["latin", "cyrillic"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
   display: "swap",
 });
 
@@ -90,9 +91,10 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${sourceSerif.variable} ${jetbrainsMono.variable} h-full`}
     >
       <head>
+        <meta name="color-scheme" content="light dark" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -100,7 +102,12 @@ export default function RootLayout({
                 try {
                   var stored = localStorage.getItem('theme');
                   var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  if (stored === 'dark' || (!stored && prefersDark)) {
+                  var resolved = stored === 'dark' || stored === 'light' ? stored : (prefersDark ? 'dark' : 'light');
+                  var meta = document.querySelector('meta[name="color-scheme"]');
+                  if (meta) {
+                    meta.setAttribute('content', stored === 'dark' || stored === 'light' ? stored : 'light dark');
+                  }
+                  if (resolved === 'dark') {
                     document.documentElement.classList.add('dark');
                   } else {
                     document.documentElement.classList.remove('dark');
@@ -130,7 +137,7 @@ export default function RootLayout({
           <main
             id="main-content"
             tabIndex={-1}
-            className="flex-1 w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 focus:outline-none"
+            className="flex-1 w-full focus:outline-none"
           >
             <PageTransition>{children}</PageTransition>
           </main>
