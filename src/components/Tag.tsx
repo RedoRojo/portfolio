@@ -7,11 +7,11 @@ export default function Tag({ children, variant = "default" }: TagProps) {
   return (
     <span
       className={`
-        px-2.5 py-1 text-xs font-mono rounded-md font-medium tracking-tight inline-block transition-colors
+        px-2 py-0.5 text-[11px] font-mono inline-block border transition-colors
         ${
           variant === "accent"
-            ? "bg-[var(--accent)] text-white"
-            : "bg-[var(--bg-secondary)] text-[var(--text-secondary)] border border-[var(--border-subtle)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            ? "border-[var(--accent)] text-[var(--accent)]"
+            : "border-[var(--border-subtle)] text-[var(--text-secondary)]"
         }
       `}
     >
@@ -19,4 +19,3 @@ export default function Tag({ children, variant = "default" }: TagProps) {
     </span>
   );
 }
-

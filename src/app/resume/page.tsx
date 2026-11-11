@@ -13,23 +13,26 @@ export default function ResumePage() {
   }
 
   return (
-    <div className="space-y-12 max-w-4xl mx-auto print:max-w-none print:px-0">
-      {/* Print Action & Quick Info Header */}
+    <div className="editorial-wrap py-12 md:py-20 space-y-12 max-w-4xl print:max-w-none print:px-0 print:py-0">
+      {/* Barra superior discreta */}
       <AnimatedSection
         immediate
-        className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 font-mono text-sm print:hidden bg-[var(--bg-card)] p-5 rounded-2xl border border-[var(--border-subtle)] shadow-sm"
+        className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-[var(--border-subtle)] pb-6 print:hidden"
       >
-        <div className="flex items-center gap-3">
-          <span className="px-3 py-1 bg-[var(--bg-secondary)] text-[var(--text-secondary)] border border-[var(--border-subtle)] text-xs font-mono font-medium rounded-md">
-            {t.resume.cvBadge}
+        <div className="space-y-1">
+          <span className="font-mono text-xs text-[var(--accent)] tracking-widest uppercase block">
+            {t.resume.pageEyebrow}
           </span>
-          <span className="text-[var(--text-muted)] text-xs">• {t.resume.pdfReady}</span>
+          <p className="font-mono text-xs text-[var(--text-muted)]">
+            {t.resume.cvBadge} &middot; {t.resume.pdfReady}
+          </p>
         </div>
+
         <div className="flex flex-wrap items-center gap-3">
           <a
             href="/CV_Cristhian_Rojas.pdf"
             download="CV_Cristhian_Rojas.pdf"
-            className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-sans font-medium rounded-xl transition-all duration-200 bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] shadow-xs"
+            className="btn-primary font-mono text-xs tracking-wider"
           >
             {t.resume.downloadPdfButton}
           </a>
@@ -39,36 +42,32 @@ export default function ResumePage() {
         </div>
       </AnimatedSection>
 
-      {/* Resume Document Paper Card */}
-      <article className="bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-8 sm:p-14 space-y-10 shadow-sm print:bg-white print:border-none print:shadow-none print:p-0">
-        {/* Header */}
-        <AnimatedSection
-          immediate
-          className="text-center space-y-4 border-b border-[var(--border-subtle)] pb-8"
-        >
-          <h1 className="text-4xl sm:text-5xl font-sans font-bold tracking-tight text-[var(--text-primary)] print:text-black">
+      {/* Documento formal abierto (sin tarjeta gigante) */}
+      <article className="space-y-12 print:space-y-8">
+        <header className="border-b border-[var(--border-subtle)] pb-8 space-y-3">
+          <h1 className="font-serif text-4xl sm:text-5xl font-normal tracking-tight text-[var(--text-primary)] print:text-black">
             {t.resume.name}
           </h1>
-          <p className="font-sans text-sm font-semibold text-[var(--accent)] tracking-wider uppercase">
+          <p className="font-serif italic text-lg text-[var(--accent)] print:text-black">
             {t.resume.roleTitle}
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-2 font-mono text-xs sm:text-sm text-[var(--text-secondary)]">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-xs text-[var(--text-secondary)] pt-1">
             <span>{t.resume.contactLocation}</span>
-            <span className="text-[var(--border-subtle)]">&bull;</span>
+            <span aria-hidden="true" className="text-[var(--border-subtle)]">&middot;</span>
             <a
               href="tel:+59168301052"
               className="hover:text-[var(--accent)] transition-colors"
             >
               {t.resume.contactPhone}
             </a>
-            <span className="text-[var(--border-subtle)]">&bull;</span>
+            <span aria-hidden="true" className="text-[var(--border-subtle)]">&middot;</span>
             <a
               href={`mailto:${t.resume.contactEmail}`}
               className="hover:text-[var(--accent)] transition-colors"
             >
               {t.resume.contactEmail}
             </a>
-            <span className="text-[var(--border-subtle)]">&bull;</span>
+            <span aria-hidden="true" className="text-[var(--border-subtle)]">&middot;</span>
             <a
               href="https://linkedin.com/in/rojasredo"
               target="_blank"
@@ -77,7 +76,7 @@ export default function ResumePage() {
             >
               {t.resume.contactLinkedin}
             </a>
-            <span className="text-[var(--border-subtle)]">&bull;</span>
+            <span aria-hidden="true" className="text-[var(--border-subtle)]">&middot;</span>
             <a
               href="https://github.com/RedoRojo"
               target="_blank"
@@ -87,76 +86,68 @@ export default function ResumePage() {
               {t.resume.contactGithub}
             </a>
           </div>
-        </AnimatedSection>
+        </header>
 
-        {/* Professional Summary */}
-        <AnimatedSection delay={0.3} className="space-y-4">
-          <h2 className="text-base font-sans font-bold border-b border-[var(--border-subtle)] pb-2 uppercase text-[var(--text-primary)] tracking-wider flex items-center gap-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] inline-block" />
+        {/* Resumen Profesional */}
+        <section className="space-y-3">
+          <h2 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)]">
             {t.resume.summaryTitle}
           </h2>
-          <p className="text-base font-sans leading-relaxed text-[var(--text-secondary)]">
+          <p className="font-serif text-base sm:text-lg leading-[1.75] text-[var(--text-secondary)] max-w-[64ch]">
             {t.resume.summaryText}
           </p>
-        </AnimatedSection>
+        </section>
 
-        {/* Technical Skills Matrix */}
-        <AnimatedSection delay={0.4} className="space-y-4">
-          <h2 className="text-base font-sans font-bold border-b border-[var(--border-subtle)] pb-2 uppercase text-[var(--text-primary)] tracking-wider flex items-center gap-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] inline-block" />
+        {/* Habilidades Técnicas */}
+        <section className="space-y-4">
+          <h2 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)]">
             {t.resume.skillsTitle}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 font-mono text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-[var(--border-subtle)] pt-5">
             {t.resume.skillsCategories.map((cat, idx) => (
               <div
                 key={idx}
-                className={`space-y-2 border-l-2 ${
+                className={`space-y-1.5 border-l-2 ${
                   cat.accent ? "border-[var(--accent)]" : "border-[var(--border-subtle)]"
                 } pl-4`}
               >
-                <span className="font-bold font-sans text-[var(--text-primary)] block">
+                <span className="font-mono text-xs font-medium text-[var(--text-primary)] block">
                   {cat.label}
                 </span>
-                <p className="font-sans text-sm text-[var(--text-secondary)] leading-relaxed">
+                <p className="font-serif text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
                   {cat.items}
                 </p>
               </div>
             ))}
           </div>
-        </AnimatedSection>
+        </section>
 
-        {/* Technical Experience Timeline */}
-        <AnimatedSection delay={0.5} className="space-y-6">
-          <h2 className="text-base font-sans font-bold border-b border-[var(--border-subtle)] pb-2 uppercase text-[var(--text-primary)] tracking-wider flex items-center gap-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] inline-block" />
+        {/* Experiencia Técnica */}
+        <section className="space-y-6">
+          <h2 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)]">
             {t.resume.experienceTitle}
           </h2>
 
-          <div className="space-y-8">
+          <div className="divide-y divide-[var(--border-subtle)] border-t border-b border-[var(--border-subtle)]">
             {t.resume.experiences.map((exp, idx) => (
-              <div
-                key={idx}
-                className={`border-l-2 ${
-                  idx === 0 ? "border-[var(--accent)]" : "border-[var(--border-subtle)]"
-                } pl-5 space-y-3`}
-              >
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+              <div key={idx} className="py-6 space-y-3">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline gap-2">
                   <div>
-                    <h3 className="font-bold font-sans text-lg text-[var(--text-primary)]">
+                    <h3 className="font-serif font-medium text-xl text-[var(--text-primary)]">
                       {exp.role}
                     </h3>
-                    <p className="text-[var(--accent)] font-mono text-sm font-medium">
+                    <p className="font-mono text-xs text-[var(--accent)] mt-0.5">
                       {exp.company}{" "}
-                      <span className="text-[var(--text-muted)] font-normal">
-                        • {exp.location}
+                      <span className="text-[var(--text-muted)]">
+                        &middot; {exp.location}
                       </span>
                     </p>
                   </div>
-                  <span className="px-3 py-1 bg-[var(--bg-secondary)] text-[var(--text-secondary)] border border-[var(--border-subtle)] text-xs font-mono font-medium rounded-md shrink-0">
+                  <span className="font-mono text-xs text-[var(--text-muted)] shrink-0">
                     {exp.dates}
                   </span>
                 </div>
-                <ul className="list-disc pl-5 font-sans text-sm sm:text-base text-[var(--text-secondary)] space-y-2 leading-relaxed">
+                <ul className="list-[square] pl-5 font-serif text-sm sm:text-base text-[var(--text-secondary)] space-y-1.5 leading-relaxed max-w-[64ch]">
                   {exp.bullets.map((bullet, bIdx) => (
                     <li key={bIdx}>{bullet}</li>
                   ))}
@@ -164,24 +155,20 @@ export default function ResumePage() {
               </div>
             ))}
           </div>
-        </AnimatedSection>
+        </section>
 
-        {/* Key Technical Projects */}
-        <AnimatedSection delay={0.6} className="space-y-4">
-          <h2 className="text-base font-sans font-bold border-b border-[var(--border-subtle)] pb-2 uppercase text-[var(--text-primary)] tracking-wider flex items-center gap-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] inline-block" />
+        {/* Proyectos Técnicos */}
+        <section className="space-y-6">
+          <h2 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)]">
             {t.resume.projectsTitle}
           </h2>
-          <div className="space-y-6">
+          <div className="divide-y divide-[var(--border-subtle)] border-t border-b border-[var(--border-subtle)]">
             {t.resume.projects.map((proj, idx) => (
-              <div
-                key={idx}
-                className="border border-[var(--border-subtle)] p-6 rounded-xl bg-[var(--bg-secondary)]/40 space-y-3"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div key={idx} className="py-6 space-y-3">
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
                   <div>
-                    <h3 className="font-bold font-sans text-lg text-[var(--text-primary)] flex items-center gap-2">
-                      <span className="text-[var(--accent)]">&bull;</span> {proj.title}
+                    <h3 className="font-serif font-medium text-xl text-[var(--text-primary)]">
+                      {proj.title}
                     </h3>
                     <p className="font-mono text-xs text-[var(--text-muted)] mt-0.5">
                       {proj.tech}
@@ -194,11 +181,11 @@ export default function ResumePage() {
                       rel="noopener noreferrer"
                       className="font-mono text-xs text-[var(--accent)] hover:underline shrink-0"
                     >
-                      GitHub Repository →
+                      GitHub &rarr;
                     </a>
                   )}
                 </div>
-                <ul className="list-disc pl-5 font-sans text-sm text-[var(--text-secondary)] space-y-1.5 leading-relaxed">
+                <ul className="list-[square] pl-5 font-serif text-sm sm:text-base text-[var(--text-secondary)] space-y-1.5 leading-relaxed max-w-[64ch]">
                   {proj.bullets.map((bullet, bIdx) => (
                     <li key={bIdx}>{bullet}</li>
                   ))}
@@ -206,53 +193,46 @@ export default function ResumePage() {
               </div>
             ))}
           </div>
-        </AnimatedSection>
+        </section>
 
-        {/* Education */}
-        <AnimatedSection delay={0.7} className="space-y-4">
-          <h2 className="text-base font-sans font-bold border-b border-[var(--border-subtle)] pb-2 uppercase text-[var(--text-primary)] tracking-wider flex items-center gap-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] inline-block" />
+        {/* Educación */}
+        <section className="space-y-3">
+          <h2 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)]">
             {t.resume.educationTitle}
           </h2>
-          <div className="border-l-2 border-[var(--accent)] pl-5">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-              <div>
-                <h3 className="font-bold font-sans text-lg text-[var(--text-primary)]">
-                  {t.resume.educationDegree}
-                </h3>
-                <p className="text-[var(--text-muted)] font-mono text-sm mt-1">
-                  {t.resume.educationUniversity}
-                </p>
-              </div>
-              <span className="px-3 py-1 border border-[var(--border-subtle)] text-[var(--text-secondary)] text-xs font-mono font-medium rounded-md bg-[var(--bg-secondary)] shrink-0">
-                {t.resume.educationDates}
-              </span>
+          <div className="border-l-2 border-[var(--accent)] pl-5 py-1 flex flex-col sm:flex-row justify-between items-start sm:items-baseline gap-2">
+            <div>
+              <h3 className="font-serif font-medium text-lg text-[var(--text-primary)]">
+                {t.resume.educationDegree}
+              </h3>
+              <p className="font-mono text-xs text-[var(--text-muted)] mt-1">
+                {t.resume.educationUniversity}
+              </p>
             </div>
+            <span className="font-mono text-xs text-[var(--text-muted)] shrink-0">
+              {t.resume.educationDates}
+            </span>
           </div>
-        </AnimatedSection>
+        </section>
 
-        {/* Achievements & Leadership */}
-        <AnimatedSection delay={0.8} className="space-y-4">
-          <h2 className="text-base font-sans font-bold border-b border-[var(--border-subtle)] pb-2 uppercase text-[var(--text-primary)] tracking-wider flex items-center gap-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] inline-block" />
+        {/* Logros y Liderazgo */}
+        <section className="space-y-4">
+          <h2 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)]">
             {t.resume.achievementsTitle}
           </h2>
-          <div className="space-y-4">
+          <div className="divide-y divide-[var(--border-subtle)] border-t border-b border-[var(--border-subtle)]">
             {t.resume.achievements.map((item, idx) => (
-              <div
-                key={idx}
-                className="border-l-2 border-[var(--border-subtle)] pl-5 space-y-1"
-              >
-                <h3 className="font-bold font-sans text-base text-[var(--text-primary)]">
+              <div key={idx} className="py-4 space-y-1">
+                <h3 className="font-serif font-medium text-base sm:text-lg text-[var(--text-primary)]">
                   {item.title}
                 </h3>
-                <p className="font-sans text-sm text-[var(--text-secondary)] leading-relaxed">
+                <p className="font-serif text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed max-w-[64ch]">
                   {item.description}
                 </p>
               </div>
             ))}
           </div>
-        </AnimatedSection>
+        </section>
       </article>
     </div>
   );

@@ -5,18 +5,17 @@ interface BadgeProps {
 
 export default function Badge({ children, variant = "black" }: BadgeProps) {
   const variantClasses = {
-    black: "bg-[var(--text-primary)] text-[var(--bg-primary)] border border-[var(--text-primary)]",
-    red: "bg-[var(--accent)] text-white border border-[var(--accent)]",
-    white: "bg-[var(--bg-card)] text-[var(--accent)] border-2 border-dotted border-[var(--accent)]",
-    green: "bg-[var(--accent-green-bg)] text-[var(--accent-green)] border border-[var(--accent-green-border)]",
+    black: "text-[var(--text-primary)] border-[var(--border-subtle)]",
+    red: "text-[var(--accent)] border-[var(--accent-border)] bg-[var(--accent-subtle)]",
+    white: "text-[var(--text-secondary)] border-[var(--border-subtle)]",
+    green: "text-[var(--accent-green)] border-[var(--accent-green-border)] bg-[var(--accent-green-bg)]",
   };
 
   return (
     <span
-      className={`font-mono text-[11px] font-semibold px-2.5 py-0.5 rounded-md inline-flex items-center transition-colors ${variantClasses[variant]}`}
+      className={`font-mono text-[11px] uppercase tracking-wider px-2 py-0.5 border inline-flex items-center ${variantClasses[variant]}`}
     >
       {children}
     </span>
   );
 }
-
